@@ -17,7 +17,8 @@
 		"C:\\Users\\gpro9\\source\\repos\\Spyen\\Spyen\\include",
 		"C:\\Users\\gpro9\\source\\repos\\Spyen\\Spyen\\src",
 		"C:\\Users\\gpro9\\source\\repos\\Spyen\\Spyen\\vendor\\glad\\include",
-		"C:\\Users\\gpro9\\source\\repos\\Spyen\\Spyen\\vendor\\glfw\\include"
+		"C:\\Users\\gpro9\\source\\repos\\Spyen\\Spyen\\vendor\\glfw\\include",
+		"C:\\Users\\gpro9\\source\\repos\\Spyen\\Spyen\\vendor\\spdlog\\include"
 	],
 	"language" : "CXX",
 	"linked-target-dirs" : [],
@@ -28,6 +29,11 @@
 		{
 			"language" : "CXX",
 			"source" : "C:/Users/gpro9/source/repos/Spyen/Spyen/src/Core/Engine.cpp"
+		},
+		"CMakeFiles/Spyen.dir/Spyen/src/Core/Log.cpp.obj" : 
+		{
+			"language" : "CXX",
+			"source" : "C:/Users/gpro9/source/repos/Spyen/Spyen/src/Core/Log.cpp"
 		},
 		"CMakeFiles/Spyen.dir/Spyen/src/Window/Window.cpp.obj" : 
 		{

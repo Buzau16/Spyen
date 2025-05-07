@@ -10,7 +10,7 @@ public:
     void PollEvents();
     void Close();
     void SwapBuffers();
-    void IsOpen();
+    bool IsOpen();
 
     [[nodiscard]] inline uint32_t GetWidth() const;
     [[nodiscard]] inline uint32_t GetHeight() const;

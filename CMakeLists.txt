@@ -6,12 +6,12 @@ find_package(OpenGL REQUIRED)
 
 set(CMAKE_CXX_STANDARD 20)
 
-file(GLOB_RECURSE SOURCES "${CMAKE_CURRENT_SOURCE_DIR}/Spyen/src/*.cpp")
+file(GLOB_RECURSE SOURCES "${CMAKE_CURRENT_SOURCE_DIR}/Spyen/src/**/*.cpp")
 
 file(GLOB_RECURSE HEADERS "${CMAKE_CURRENT_SOURCE_DIR}/Spyen/include/*.h")
 
 # Add the Spyen library
-add_library(Spyen SHARED ${SOURCES} ${HEADERS})
+add_library(Spyen SHARED ${SOURCES} Spyen/src/Core/Log.cpp ${HEADERS})
 
 # Define SPYEN_BUILD when building the DLL itself
 target_compile_definitions(Spyen PRIVATE SPYEN_BUILD_DLL)
@@ -24,6 +24,7 @@ target_include_directories(Spyen
         ${CMAKE_CURRENT_SOURCE_DIR}/Spyen/src
         ${CMAKE_CURRENT_SOURCE_DIR}/Spyen/vendor/glad/include
         ${CMAKE_CURRENT_SOURCE_DIR}/Spyen/vendor/glfw/include
+        ${CMAKE_CURRENT_SOURCE_DIR}/Spyen/vendor/spdlog/include
 )
 
 
@@ -50,7 +51,8 @@ target_link_libraries(Spyen PRIVATE
 
 project(SandBox)
 # Add the Sandbox executable (note: case sensitivity matters)
-add_executable(Sandbox "SandBox/src/main.cpp")
+add_executable(Sandbox "SandBox/src/main.cpp"
+        Spyen/include/Core/LogMacros.h)
 
 target_include_directories(
         Sandbox PUBLIC
