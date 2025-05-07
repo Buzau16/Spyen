@@ -1,0 +1,5 @@
+ninja_dyndep_version = 1.0
+build CMakeFiles/Spyen.dir/Spyen/src/Core/Engine.cpp.obj: dyndep
+
+build CMakeFiles/Spyen.dir/Spyen/src/Window/Window.cpp.obj: dyndep
+

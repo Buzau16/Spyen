@@ -1,0 +1,30 @@
+{
+	"bmi-installation" : null,
+	"compiler-frontend-variant" : "GNU",
+	"compiler-id" : "Clang",
+	"compiler-simulate-id" : "MSVC",
+	"config" : "Debug",
+	"cxx-modules" : {},
+	"database-info" : null,
+	"dir-cur-bld" : "C:/Users/gpro9/source/repos/Spyen/cmake-build-debug",
+	"dir-cur-src" : "C:/Users/gpro9/source/repos/Spyen",
+	"dir-top-bld" : "C:/Users/gpro9/source/repos/Spyen/cmake-build-debug",
+	"dir-top-src" : "C:/Users/gpro9/source/repos/Spyen",
+	"exports" : [],
+	"forward-modules-from-target-dirs" : [],
+	"include-dirs" : 
+	[
+		"C:\\Users\\gpro9\\source\\repos\\Spyen\\Spyen\\include"
+	],
+	"language" : "CXX",
+	"linked-target-dirs" : [],
+	"module-dir" : "C:/Users/gpro9/source/repos/Spyen/cmake-build-debug/CMakeFiles/Sandbox.dir",
+	"sources" : 
+	{
+		"CMakeFiles/Sandbox.dir/SandBox/src/main.cpp.obj" : 
+		{
+			"language" : "CXX",
+			"source" : "C:/Users/gpro9/source/repos/Spyen/SandBox/src/main.cpp"
+		}
+	}
+}

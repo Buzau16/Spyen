@@ -1,0 +1,9 @@
+{
+  "revision": 0,
+  "rules": [
+    {
+      "primary-output": "CMakeFiles\\Spyen.dir\\Spyen\\src\\Core\\Engine.cpp.obj"
+    }
+  ],
+  "version": 1
+}
