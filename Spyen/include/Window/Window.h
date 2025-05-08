@@ -10,6 +10,7 @@ public:
     void PollEvents();
     void Close();
     void SwapBuffers();
+    void Clear(float r, float g, float b, float a = 1.0f);
     bool IsOpen();
 
     [[nodiscard]] inline uint32_t GetWidth() const;

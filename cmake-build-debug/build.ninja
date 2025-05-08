@@ -50,7 +50,7 @@ cmake_ninja_workdir = C$:/Users/gpro9/source/repos/Spyen/cmake-build-debug/
 build cmake_object_order_depends_target_Spyen: phony || .
 
 build CMakeFiles/Spyen.dir/Spyen/src/Core/Engine.cpp.obj.ddi: CXX_SCAN__Spyen_Debug C$:/Users/gpro9/source/repos/Spyen/Spyen/src/Core/Engine.cpp || cmake_object_order_depends_target_Spyen
-  DEFINES = -DSPYEN_BUILD_DLL -DSpyen_EXPORTS
+  DEFINES = -DSPYEN_BUILD_DLL -DSP_DEBUG -DSpyen_EXPORTS
   DEP_FILE = CMakeFiles\Spyen.dir\Spyen\src\Core\Engine.cpp.obj.ddi.d
   DYNDEP_INTERMEDIATE_FILE = CMakeFiles\Spyen.dir\Spyen\src\Core\Engine.cpp.obj.ddi
   FLAGS = -O0 -std=gnu++20 -D_DEBUG -D_DLL -D_MT -Xclang --dependent-lib=msvcrtd -g -Xclang -gcodeview
@@ -59,7 +59,7 @@ build CMakeFiles/Spyen.dir/Spyen/src/Core/Engine.cpp.obj.ddi: CXX_SCAN__Spyen_De
   PREPROCESSED_OUTPUT_FILE = CMakeFiles\Spyen.dir\Spyen\src\Core\Engine.cpp.obj.ddi.i
 
 build CMakeFiles/Spyen.dir/Spyen/src/Core/Engine.cpp.obj: CXX_COMPILER__Spyen_scanned_Debug C$:/Users/gpro9/source/repos/Spyen/Spyen/src/Core/Engine.cpp | CMakeFiles/Spyen.dir/Spyen/src/Core/Engine.cpp.obj.modmap || cmake_object_order_depends_target_Spyen CMakeFiles/Spyen.dir/CXX.dd
-  DEFINES = -DSPYEN_BUILD_DLL -DSpyen_EXPORTS
+  DEFINES = -DSPYEN_BUILD_DLL -DSP_DEBUG -DSpyen_EXPORTS
   DEP_FILE = CMakeFiles\Spyen.dir\Spyen\src\Core\Engine.cpp.obj.d
   DYNDEP_MODULE_MAP_FILE = CMakeFiles\Spyen.dir\Spyen\src\Core\Engine.cpp.obj.modmap
   FLAGS = -O0 -std=gnu++20 -D_DEBUG -D_DLL -D_MT -Xclang --dependent-lib=msvcrtd -g -Xclang -gcodeview
@@ -71,7 +71,7 @@ build CMakeFiles/Spyen.dir/Spyen/src/Core/Engine.cpp.obj: CXX_COMPILER__Spyen_sc
   dyndep = CMakeFiles/Spyen.dir/CXX.dd
 
 build CMakeFiles/Spyen.dir/Spyen/src/Core/Log.cpp.obj.ddi: CXX_SCAN__Spyen_Debug C$:/Users/gpro9/source/repos/Spyen/Spyen/src/Core/Log.cpp || cmake_object_order_depends_target_Spyen
-  DEFINES = -DSPYEN_BUILD_DLL -DSpyen_EXPORTS
+  DEFINES = -DSPYEN_BUILD_DLL -DSP_DEBUG -DSpyen_EXPORTS
   DEP_FILE = CMakeFiles\Spyen.dir\Spyen\src\Core\Log.cpp.obj.ddi.d
   DYNDEP_INTERMEDIATE_FILE = CMakeFiles\Spyen.dir\Spyen\src\Core\Log.cpp.obj.ddi
   FLAGS = -O0 -std=gnu++20 -D_DEBUG -D_DLL -D_MT -Xclang --dependent-lib=msvcrtd -g -Xclang -gcodeview
@@ -80,7 +80,7 @@ build CMakeFiles/Spyen.dir/Spyen/src/Core/Log.cpp.obj.ddi: CXX_SCAN__Spyen_Debug
   PREPROCESSED_OUTPUT_FILE = CMakeFiles\Spyen.dir\Spyen\src\Core\Log.cpp.obj.ddi.i
 
 build CMakeFiles/Spyen.dir/Spyen/src/Core/Log.cpp.obj: CXX_COMPILER__Spyen_scanned_Debug C$:/Users/gpro9/source/repos/Spyen/Spyen/src/Core/Log.cpp | CMakeFiles/Spyen.dir/Spyen/src/Core/Log.cpp.obj.modmap || cmake_object_order_depends_target_Spyen CMakeFiles/Spyen.dir/CXX.dd
-  DEFINES = -DSPYEN_BUILD_DLL -DSpyen_EXPORTS
+  DEFINES = -DSPYEN_BUILD_DLL -DSP_DEBUG -DSpyen_EXPORTS
   DEP_FILE = CMakeFiles\Spyen.dir\Spyen\src\Core\Log.cpp.obj.d
   DYNDEP_MODULE_MAP_FILE = CMakeFiles\Spyen.dir\Spyen\src\Core\Log.cpp.obj.modmap
   FLAGS = -O0 -std=gnu++20 -D_DEBUG -D_DLL -D_MT -Xclang --dependent-lib=msvcrtd -g -Xclang -gcodeview
@@ -91,8 +91,155 @@ build CMakeFiles/Spyen.dir/Spyen/src/Core/Log.cpp.obj: CXX_COMPILER__Spyen_scann
   TARGET_PDB = Spyen.pdb
   dyndep = CMakeFiles/Spyen.dir/CXX.dd
 
+build CMakeFiles/Spyen.dir/Spyen/src/Renderer/BufferElement.cpp.obj.ddi: CXX_SCAN__Spyen_Debug C$:/Users/gpro9/source/repos/Spyen/Spyen/src/Renderer/BufferElement.cpp || cmake_object_order_depends_target_Spyen
+  DEFINES = -DSPYEN_BUILD_DLL -DSP_DEBUG -DSpyen_EXPORTS
+  DEP_FILE = CMakeFiles\Spyen.dir\Spyen\src\Renderer\BufferElement.cpp.obj.ddi.d
+  DYNDEP_INTERMEDIATE_FILE = CMakeFiles\Spyen.dir\Spyen\src\Renderer\BufferElement.cpp.obj.ddi
+  FLAGS = -O0 -std=gnu++20 -D_DEBUG -D_DLL -D_MT -Xclang --dependent-lib=msvcrtd -g -Xclang -gcodeview
+  INCLUDES = -IC:/Users/gpro9/source/repos/Spyen/Spyen/include -IC:/Users/gpro9/source/repos/Spyen/Spyen/src -IC:/Users/gpro9/source/repos/Spyen/Spyen/vendor/glad/include -IC:/Users/gpro9/source/repos/Spyen/Spyen/vendor/glfw/include -IC:/Users/gpro9/source/repos/Spyen/Spyen/vendor/spdlog/include
+  OBJ_FILE = CMakeFiles\Spyen.dir\Spyen\src\Renderer\BufferElement.cpp.obj
+  PREPROCESSED_OUTPUT_FILE = CMakeFiles\Spyen.dir\Spyen\src\Renderer\BufferElement.cpp.obj.ddi.i
+
+build CMakeFiles/Spyen.dir/Spyen/src/Renderer/BufferElement.cpp.obj: CXX_COMPILER__Spyen_scanned_Debug C$:/Users/gpro9/source/repos/Spyen/Spyen/src/Renderer/BufferElement.cpp | CMakeFiles/Spyen.dir/Spyen/src/Renderer/BufferElement.cpp.obj.modmap || cmake_object_order_depends_target_Spyen CMakeFiles/Spyen.dir/CXX.dd
+  DEFINES = -DSPYEN_BUILD_DLL -DSP_DEBUG -DSpyen_EXPORTS
+  DEP_FILE = CMakeFiles\Spyen.dir\Spyen\src\Renderer\BufferElement.cpp.obj.d
+  DYNDEP_MODULE_MAP_FILE = CMakeFiles\Spyen.dir\Spyen\src\Renderer\BufferElement.cpp.obj.modmap
+  FLAGS = -O0 -std=gnu++20 -D_DEBUG -D_DLL -D_MT -Xclang --dependent-lib=msvcrtd -g -Xclang -gcodeview
+  INCLUDES = -IC:/Users/gpro9/source/repos/Spyen/Spyen/include -IC:/Users/gpro9/source/repos/Spyen/Spyen/src -IC:/Users/gpro9/source/repos/Spyen/Spyen/vendor/glad/include -IC:/Users/gpro9/source/repos/Spyen/Spyen/vendor/glfw/include -IC:/Users/gpro9/source/repos/Spyen/Spyen/vendor/spdlog/include
+  OBJECT_DIR = CMakeFiles\Spyen.dir
+  OBJECT_FILE_DIR = CMakeFiles\Spyen.dir\Spyen\src\Renderer
+  TARGET_COMPILE_PDB = CMakeFiles\Spyen.dir\
+  TARGET_PDB = Spyen.pdb
+  dyndep = CMakeFiles/Spyen.dir/CXX.dd
+
+build CMakeFiles/Spyen.dir/Spyen/src/Renderer/BufferLayout.cpp.obj.ddi: CXX_SCAN__Spyen_Debug C$:/Users/gpro9/source/repos/Spyen/Spyen/src/Renderer/BufferLayout.cpp || cmake_object_order_depends_target_Spyen
+  DEFINES = -DSPYEN_BUILD_DLL -DSP_DEBUG -DSpyen_EXPORTS
+  DEP_FILE = CMakeFiles\Spyen.dir\Spyen\src\Renderer\BufferLayout.cpp.obj.ddi.d
+  DYNDEP_INTERMEDIATE_FILE = CMakeFiles\Spyen.dir\Spyen\src\Renderer\BufferLayout.cpp.obj.ddi
+  FLAGS = -O0 -std=gnu++20 -D_DEBUG -D_DLL -D_MT -Xclang --dependent-lib=msvcrtd -g -Xclang -gcodeview
+  INCLUDES = -IC:/Users/gpro9/source/repos/Spyen/Spyen/include -IC:/Users/gpro9/source/repos/Spyen/Spyen/src -IC:/Users/gpro9/source/repos/Spyen/Spyen/vendor/glad/include -IC:/Users/gpro9/source/repos/Spyen/Spyen/vendor/glfw/include -IC:/Users/gpro9/source/repos/Spyen/Spyen/vendor/spdlog/include
+  OBJ_FILE = CMakeFiles\Spyen.dir\Spyen\src\Renderer\BufferLayout.cpp.obj
+  PREPROCESSED_OUTPUT_FILE = CMakeFiles\Spyen.dir\Spyen\src\Renderer\BufferLayout.cpp.obj.ddi.i
+
+build CMakeFiles/Spyen.dir/Spyen/src/Renderer/BufferLayout.cpp.obj: CXX_COMPILER__Spyen_scanned_Debug C$:/Users/gpro9/source/repos/Spyen/Spyen/src/Renderer/BufferLayout.cpp | CMakeFiles/Spyen.dir/Spyen/src/Renderer/BufferLayout.cpp.obj.modmap || cmake_object_order_depends_target_Spyen CMakeFiles/Spyen.dir/CXX.dd
+  DEFINES = -DSPYEN_BUILD_DLL -DSP_DEBUG -DSpyen_EXPORTS
+  DEP_FILE = CMakeFiles\Spyen.dir\Spyen\src\Renderer\BufferLayout.cpp.obj.d
+  DYNDEP_MODULE_MAP_FILE = CMakeFiles\Spyen.dir\Spyen\src\Renderer\BufferLayout.cpp.obj.modmap
+  FLAGS = -O0 -std=gnu++20 -D_DEBUG -D_DLL -D_MT -Xclang --dependent-lib=msvcrtd -g -Xclang -gcodeview
+  INCLUDES = -IC:/Users/gpro9/source/repos/Spyen/Spyen/include -IC:/Users/gpro9/source/repos/Spyen/Spyen/src -IC:/Users/gpro9/source/repos/Spyen/Spyen/vendor/glad/include -IC:/Users/gpro9/source/repos/Spyen/Spyen/vendor/glfw/include -IC:/Users/gpro9/source/repos/Spyen/Spyen/vendor/spdlog/include
+  OBJECT_DIR = CMakeFiles\Spyen.dir
+  OBJECT_FILE_DIR = CMakeFiles\Spyen.dir\Spyen\src\Renderer
+  TARGET_COMPILE_PDB = CMakeFiles\Spyen.dir\
+  TARGET_PDB = Spyen.pdb
+  dyndep = CMakeFiles/Spyen.dir/CXX.dd
+
+build CMakeFiles/Spyen.dir/Spyen/src/Renderer/IndexBuffer.cpp.obj.ddi: CXX_SCAN__Spyen_Debug C$:/Users/gpro9/source/repos/Spyen/Spyen/src/Renderer/IndexBuffer.cpp || cmake_object_order_depends_target_Spyen
+  DEFINES = -DSPYEN_BUILD_DLL -DSP_DEBUG -DSpyen_EXPORTS
+  DEP_FILE = CMakeFiles\Spyen.dir\Spyen\src\Renderer\IndexBuffer.cpp.obj.ddi.d
+  DYNDEP_INTERMEDIATE_FILE = CMakeFiles\Spyen.dir\Spyen\src\Renderer\IndexBuffer.cpp.obj.ddi
+  FLAGS = -O0 -std=gnu++20 -D_DEBUG -D_DLL -D_MT -Xclang --dependent-lib=msvcrtd -g -Xclang -gcodeview
+  INCLUDES = -IC:/Users/gpro9/source/repos/Spyen/Spyen/include -IC:/Users/gpro9/source/repos/Spyen/Spyen/src -IC:/Users/gpro9/source/repos/Spyen/Spyen/vendor/glad/include -IC:/Users/gpro9/source/repos/Spyen/Spyen/vendor/glfw/include -IC:/Users/gpro9/source/repos/Spyen/Spyen/vendor/spdlog/include
+  OBJ_FILE = CMakeFiles\Spyen.dir\Spyen\src\Renderer\IndexBuffer.cpp.obj
+  PREPROCESSED_OUTPUT_FILE = CMakeFiles\Spyen.dir\Spyen\src\Renderer\IndexBuffer.cpp.obj.ddi.i
+
+build CMakeFiles/Spyen.dir/Spyen/src/Renderer/IndexBuffer.cpp.obj: CXX_COMPILER__Spyen_scanned_Debug C$:/Users/gpro9/source/repos/Spyen/Spyen/src/Renderer/IndexBuffer.cpp | CMakeFiles/Spyen.dir/Spyen/src/Renderer/IndexBuffer.cpp.obj.modmap || cmake_object_order_depends_target_Spyen CMakeFiles/Spyen.dir/CXX.dd
+  DEFINES = -DSPYEN_BUILD_DLL -DSP_DEBUG -DSpyen_EXPORTS
+  DEP_FILE = CMakeFiles\Spyen.dir\Spyen\src\Renderer\IndexBuffer.cpp.obj.d
+  DYNDEP_MODULE_MAP_FILE = CMakeFiles\Spyen.dir\Spyen\src\Renderer\IndexBuffer.cpp.obj.modmap
+  FLAGS = -O0 -std=gnu++20 -D_DEBUG -D_DLL -D_MT -Xclang --dependent-lib=msvcrtd -g -Xclang -gcodeview
+  INCLUDES = -IC:/Users/gpro9/source/repos/Spyen/Spyen/include -IC:/Users/gpro9/source/repos/Spyen/Spyen/src -IC:/Users/gpro9/source/repos/Spyen/Spyen/vendor/glad/include -IC:/Users/gpro9/source/repos/Spyen/Spyen/vendor/glfw/include -IC:/Users/gpro9/source/repos/Spyen/Spyen/vendor/spdlog/include
+  OBJECT_DIR = CMakeFiles\Spyen.dir
+  OBJECT_FILE_DIR = CMakeFiles\Spyen.dir\Spyen\src\Renderer
+  TARGET_COMPILE_PDB = CMakeFiles\Spyen.dir\
+  TARGET_PDB = Spyen.pdb
+  dyndep = CMakeFiles/Spyen.dir/CXX.dd
+
+build CMakeFiles/Spyen.dir/Spyen/src/Renderer/Renderer.cpp.obj.ddi: CXX_SCAN__Spyen_Debug C$:/Users/gpro9/source/repos/Spyen/Spyen/src/Renderer/Renderer.cpp || cmake_object_order_depends_target_Spyen
+  DEFINES = -DSPYEN_BUILD_DLL -DSP_DEBUG -DSpyen_EXPORTS
+  DEP_FILE = CMakeFiles\Spyen.dir\Spyen\src\Renderer\Renderer.cpp.obj.ddi.d
+  DYNDEP_INTERMEDIATE_FILE = CMakeFiles\Spyen.dir\Spyen\src\Renderer\Renderer.cpp.obj.ddi
+  FLAGS = -O0 -std=gnu++20 -D_DEBUG -D_DLL -D_MT -Xclang --dependent-lib=msvcrtd -g -Xclang -gcodeview
+  INCLUDES = -IC:/Users/gpro9/source/repos/Spyen/Spyen/include -IC:/Users/gpro9/source/repos/Spyen/Spyen/src -IC:/Users/gpro9/source/repos/Spyen/Spyen/vendor/glad/include -IC:/Users/gpro9/source/repos/Spyen/Spyen/vendor/glfw/include -IC:/Users/gpro9/source/repos/Spyen/Spyen/vendor/spdlog/include
+  OBJ_FILE = CMakeFiles\Spyen.dir\Spyen\src\Renderer\Renderer.cpp.obj
+  PREPROCESSED_OUTPUT_FILE = CMakeFiles\Spyen.dir\Spyen\src\Renderer\Renderer.cpp.obj.ddi.i
+
+build CMakeFiles/Spyen.dir/Spyen/src/Renderer/Renderer.cpp.obj: CXX_COMPILER__Spyen_scanned_Debug C$:/Users/gpro9/source/repos/Spyen/Spyen/src/Renderer/Renderer.cpp | CMakeFiles/Spyen.dir/Spyen/src/Renderer/Renderer.cpp.obj.modmap || cmake_object_order_depends_target_Spyen CMakeFiles/Spyen.dir/CXX.dd
+  DEFINES = -DSPYEN_BUILD_DLL -DSP_DEBUG -DSpyen_EXPORTS
+  DEP_FILE = CMakeFiles\Spyen.dir\Spyen\src\Renderer\Renderer.cpp.obj.d
+  DYNDEP_MODULE_MAP_FILE = CMakeFiles\Spyen.dir\Spyen\src\Renderer\Renderer.cpp.obj.modmap
+  FLAGS = -O0 -std=gnu++20 -D_DEBUG -D_DLL -D_MT -Xclang --dependent-lib=msvcrtd -g -Xclang -gcodeview
+  INCLUDES = -IC:/Users/gpro9/source/repos/Spyen/Spyen/include -IC:/Users/gpro9/source/repos/Spyen/Spyen/src -IC:/Users/gpro9/source/repos/Spyen/Spyen/vendor/glad/include -IC:/Users/gpro9/source/repos/Spyen/Spyen/vendor/glfw/include -IC:/Users/gpro9/source/repos/Spyen/Spyen/vendor/spdlog/include
+  OBJECT_DIR = CMakeFiles\Spyen.dir
+  OBJECT_FILE_DIR = CMakeFiles\Spyen.dir\Spyen\src\Renderer
+  TARGET_COMPILE_PDB = CMakeFiles\Spyen.dir\
+  TARGET_PDB = Spyen.pdb
+  dyndep = CMakeFiles/Spyen.dir/CXX.dd
+
+build CMakeFiles/Spyen.dir/Spyen/src/Renderer/Shader.cpp.obj.ddi: CXX_SCAN__Spyen_Debug C$:/Users/gpro9/source/repos/Spyen/Spyen/src/Renderer/Shader.cpp || cmake_object_order_depends_target_Spyen
+  DEFINES = -DSPYEN_BUILD_DLL -DSP_DEBUG -DSpyen_EXPORTS
+  DEP_FILE = CMakeFiles\Spyen.dir\Spyen\src\Renderer\Shader.cpp.obj.ddi.d
+  DYNDEP_INTERMEDIATE_FILE = CMakeFiles\Spyen.dir\Spyen\src\Renderer\Shader.cpp.obj.ddi
+  FLAGS = -O0 -std=gnu++20 -D_DEBUG -D_DLL -D_MT -Xclang --dependent-lib=msvcrtd -g -Xclang -gcodeview
+  INCLUDES = -IC:/Users/gpro9/source/repos/Spyen/Spyen/include -IC:/Users/gpro9/source/repos/Spyen/Spyen/src -IC:/Users/gpro9/source/repos/Spyen/Spyen/vendor/glad/include -IC:/Users/gpro9/source/repos/Spyen/Spyen/vendor/glfw/include -IC:/Users/gpro9/source/repos/Spyen/Spyen/vendor/spdlog/include
+  OBJ_FILE = CMakeFiles\Spyen.dir\Spyen\src\Renderer\Shader.cpp.obj
+  PREPROCESSED_OUTPUT_FILE = CMakeFiles\Spyen.dir\Spyen\src\Renderer\Shader.cpp.obj.ddi.i
+
+build CMakeFiles/Spyen.dir/Spyen/src/Renderer/Shader.cpp.obj: CXX_COMPILER__Spyen_scanned_Debug C$:/Users/gpro9/source/repos/Spyen/Spyen/src/Renderer/Shader.cpp | CMakeFiles/Spyen.dir/Spyen/src/Renderer/Shader.cpp.obj.modmap || cmake_object_order_depends_target_Spyen CMakeFiles/Spyen.dir/CXX.dd
+  DEFINES = -DSPYEN_BUILD_DLL -DSP_DEBUG -DSpyen_EXPORTS
+  DEP_FILE = CMakeFiles\Spyen.dir\Spyen\src\Renderer\Shader.cpp.obj.d
+  DYNDEP_MODULE_MAP_FILE = CMakeFiles\Spyen.dir\Spyen\src\Renderer\Shader.cpp.obj.modmap
+  FLAGS = -O0 -std=gnu++20 -D_DEBUG -D_DLL -D_MT -Xclang --dependent-lib=msvcrtd -g -Xclang -gcodeview
+  INCLUDES = -IC:/Users/gpro9/source/repos/Spyen/Spyen/include -IC:/Users/gpro9/source/repos/Spyen/Spyen/src -IC:/Users/gpro9/source/repos/Spyen/Spyen/vendor/glad/include -IC:/Users/gpro9/source/repos/Spyen/Spyen/vendor/glfw/include -IC:/Users/gpro9/source/repos/Spyen/Spyen/vendor/spdlog/include
+  OBJECT_DIR = CMakeFiles\Spyen.dir
+  OBJECT_FILE_DIR = CMakeFiles\Spyen.dir\Spyen\src\Renderer
+  TARGET_COMPILE_PDB = CMakeFiles\Spyen.dir\
+  TARGET_PDB = Spyen.pdb
+  dyndep = CMakeFiles/Spyen.dir/CXX.dd
+
+build CMakeFiles/Spyen.dir/Spyen/src/Renderer/VertexArray.cpp.obj.ddi: CXX_SCAN__Spyen_Debug C$:/Users/gpro9/source/repos/Spyen/Spyen/src/Renderer/VertexArray.cpp || cmake_object_order_depends_target_Spyen
+  DEFINES = -DSPYEN_BUILD_DLL -DSP_DEBUG -DSpyen_EXPORTS
+  DEP_FILE = CMakeFiles\Spyen.dir\Spyen\src\Renderer\VertexArray.cpp.obj.ddi.d
+  DYNDEP_INTERMEDIATE_FILE = CMakeFiles\Spyen.dir\Spyen\src\Renderer\VertexArray.cpp.obj.ddi
+  FLAGS = -O0 -std=gnu++20 -D_DEBUG -D_DLL -D_MT -Xclang --dependent-lib=msvcrtd -g -Xclang -gcodeview
+  INCLUDES = -IC:/Users/gpro9/source/repos/Spyen/Spyen/include -IC:/Users/gpro9/source/repos/Spyen/Spyen/src -IC:/Users/gpro9/source/repos/Spyen/Spyen/vendor/glad/include -IC:/Users/gpro9/source/repos/Spyen/Spyen/vendor/glfw/include -IC:/Users/gpro9/source/repos/Spyen/Spyen/vendor/spdlog/include
+  OBJ_FILE = CMakeFiles\Spyen.dir\Spyen\src\Renderer\VertexArray.cpp.obj
+  PREPROCESSED_OUTPUT_FILE = CMakeFiles\Spyen.dir\Spyen\src\Renderer\VertexArray.cpp.obj.ddi.i
+
+build CMakeFiles/Spyen.dir/Spyen/src/Renderer/VertexArray.cpp.obj: CXX_COMPILER__Spyen_scanned_Debug C$:/Users/gpro9/source/repos/Spyen/Spyen/src/Renderer/VertexArray.cpp | CMakeFiles/Spyen.dir/Spyen/src/Renderer/VertexArray.cpp.obj.modmap || cmake_object_order_depends_target_Spyen CMakeFiles/Spyen.dir/CXX.dd
+  DEFINES = -DSPYEN_BUILD_DLL -DSP_DEBUG -DSpyen_EXPORTS
+  DEP_FILE = CMakeFiles\Spyen.dir\Spyen\src\Renderer\VertexArray.cpp.obj.d
+  DYNDEP_MODULE_MAP_FILE = CMakeFiles\Spyen.dir\Spyen\src\Renderer\VertexArray.cpp.obj.modmap
+  FLAGS = -O0 -std=gnu++20 -D_DEBUG -D_DLL -D_MT -Xclang --dependent-lib=msvcrtd -g -Xclang -gcodeview
+  INCLUDES = -IC:/Users/gpro9/source/repos/Spyen/Spyen/include -IC:/Users/gpro9/source/repos/Spyen/Spyen/src -IC:/Users/gpro9/source/repos/Spyen/Spyen/vendor/glad/include -IC:/Users/gpro9/source/repos/Spyen/Spyen/vendor/glfw/include -IC:/Users/gpro9/source/repos/Spyen/Spyen/vendor/spdlog/include
+  OBJECT_DIR = CMakeFiles\Spyen.dir
+  OBJECT_FILE_DIR = CMakeFiles\Spyen.dir\Spyen\src\Renderer
+  TARGET_COMPILE_PDB = CMakeFiles\Spyen.dir\
+  TARGET_PDB = Spyen.pdb
+  dyndep = CMakeFiles/Spyen.dir/CXX.dd
+
+build CMakeFiles/Spyen.dir/Spyen/src/Renderer/VertexBuffer.cpp.obj.ddi: CXX_SCAN__Spyen_Debug C$:/Users/gpro9/source/repos/Spyen/Spyen/src/Renderer/VertexBuffer.cpp || cmake_object_order_depends_target_Spyen
+  DEFINES = -DSPYEN_BUILD_DLL -DSP_DEBUG -DSpyen_EXPORTS
+  DEP_FILE = CMakeFiles\Spyen.dir\Spyen\src\Renderer\VertexBuffer.cpp.obj.ddi.d
+  DYNDEP_INTERMEDIATE_FILE = CMakeFiles\Spyen.dir\Spyen\src\Renderer\VertexBuffer.cpp.obj.ddi
+  FLAGS = -O0 -std=gnu++20 -D_DEBUG -D_DLL -D_MT -Xclang --dependent-lib=msvcrtd -g -Xclang -gcodeview
+  INCLUDES = -IC:/Users/gpro9/source/repos/Spyen/Spyen/include -IC:/Users/gpro9/source/repos/Spyen/Spyen/src -IC:/Users/gpro9/source/repos/Spyen/Spyen/vendor/glad/include -IC:/Users/gpro9/source/repos/Spyen/Spyen/vendor/glfw/include -IC:/Users/gpro9/source/repos/Spyen/Spyen/vendor/spdlog/include
+  OBJ_FILE = CMakeFiles\Spyen.dir\Spyen\src\Renderer\VertexBuffer.cpp.obj
+  PREPROCESSED_OUTPUT_FILE = CMakeFiles\Spyen.dir\Spyen\src\Renderer\VertexBuffer.cpp.obj.ddi.i
+
+build CMakeFiles/Spyen.dir/Spyen/src/Renderer/VertexBuffer.cpp.obj: CXX_COMPILER__Spyen_scanned_Debug C$:/Users/gpro9/source/repos/Spyen/Spyen/src/Renderer/VertexBuffer.cpp | CMakeFiles/Spyen.dir/Spyen/src/Renderer/VertexBuffer.cpp.obj.modmap || cmake_object_order_depends_target_Spyen CMakeFiles/Spyen.dir/CXX.dd
+  DEFINES = -DSPYEN_BUILD_DLL -DSP_DEBUG -DSpyen_EXPORTS
+  DEP_FILE = CMakeFiles\Spyen.dir\Spyen\src\Renderer\VertexBuffer.cpp.obj.d
+  DYNDEP_MODULE_MAP_FILE = CMakeFiles\Spyen.dir\Spyen\src\Renderer\VertexBuffer.cpp.obj.modmap
+  FLAGS = -O0 -std=gnu++20 -D_DEBUG -D_DLL -D_MT -Xclang --dependent-lib=msvcrtd -g -Xclang -gcodeview
+  INCLUDES = -IC:/Users/gpro9/source/repos/Spyen/Spyen/include -IC:/Users/gpro9/source/repos/Spyen/Spyen/src -IC:/Users/gpro9/source/repos/Spyen/Spyen/vendor/glad/include -IC:/Users/gpro9/source/repos/Spyen/Spyen/vendor/glfw/include -IC:/Users/gpro9/source/repos/Spyen/Spyen/vendor/spdlog/include
+  OBJECT_DIR = CMakeFiles\Spyen.dir
+  OBJECT_FILE_DIR = CMakeFiles\Spyen.dir\Spyen\src\Renderer
+  TARGET_COMPILE_PDB = CMakeFiles\Spyen.dir\
+  TARGET_PDB = Spyen.pdb
+  dyndep = CMakeFiles/Spyen.dir/CXX.dd
+
 build CMakeFiles/Spyen.dir/Spyen/src/Window/Window.cpp.obj.ddi: CXX_SCAN__Spyen_Debug C$:/Users/gpro9/source/repos/Spyen/Spyen/src/Window/Window.cpp || cmake_object_order_depends_target_Spyen
-  DEFINES = -DSPYEN_BUILD_DLL -DSpyen_EXPORTS
+  DEFINES = -DSPYEN_BUILD_DLL -DSP_DEBUG -DSpyen_EXPORTS
   DEP_FILE = CMakeFiles\Spyen.dir\Spyen\src\Window\Window.cpp.obj.ddi.d
   DYNDEP_INTERMEDIATE_FILE = CMakeFiles\Spyen.dir\Spyen\src\Window\Window.cpp.obj.ddi
   FLAGS = -O0 -std=gnu++20 -D_DEBUG -D_DLL -D_MT -Xclang --dependent-lib=msvcrtd -g -Xclang -gcodeview
@@ -101,7 +248,7 @@ build CMakeFiles/Spyen.dir/Spyen/src/Window/Window.cpp.obj.ddi: CXX_SCAN__Spyen_
   PREPROCESSED_OUTPUT_FILE = CMakeFiles\Spyen.dir\Spyen\src\Window\Window.cpp.obj.ddi.i
 
 build CMakeFiles/Spyen.dir/Spyen/src/Window/Window.cpp.obj: CXX_COMPILER__Spyen_scanned_Debug C$:/Users/gpro9/source/repos/Spyen/Spyen/src/Window/Window.cpp | CMakeFiles/Spyen.dir/Spyen/src/Window/Window.cpp.obj.modmap || cmake_object_order_depends_target_Spyen CMakeFiles/Spyen.dir/CXX.dd
-  DEFINES = -DSPYEN_BUILD_DLL -DSpyen_EXPORTS
+  DEFINES = -DSPYEN_BUILD_DLL -DSP_DEBUG -DSpyen_EXPORTS
   DEP_FILE = CMakeFiles\Spyen.dir\Spyen\src\Window\Window.cpp.obj.d
   DYNDEP_MODULE_MAP_FILE = CMakeFiles\Spyen.dir\Spyen\src\Window\Window.cpp.obj.modmap
   FLAGS = -O0 -std=gnu++20 -D_DEBUG -D_DLL -D_MT -Xclang --dependent-lib=msvcrtd -g -Xclang -gcodeview
@@ -113,7 +260,7 @@ build CMakeFiles/Spyen.dir/Spyen/src/Window/Window.cpp.obj: CXX_COMPILER__Spyen_
   dyndep = CMakeFiles/Spyen.dir/CXX.dd
 
 build CMakeFiles/Spyen.dir/Spyen/vendor/glad/src/glad.c.obj: C_COMPILER__Spyen_unscanned_Debug C$:/Users/gpro9/source/repos/Spyen/Spyen/vendor/glad/src/glad.c || cmake_object_order_depends_target_Spyen
-  DEFINES = -DSPYEN_BUILD_DLL -DSpyen_EXPORTS
+  DEFINES = -DSPYEN_BUILD_DLL -DSP_DEBUG -DSpyen_EXPORTS
   DEP_FILE = CMakeFiles\Spyen.dir\Spyen\vendor\glad\src\glad.c.obj.d
   FLAGS = -O0 -D_DEBUG -D_DLL -D_MT -Xclang --dependent-lib=msvcrtd -g -Xclang -gcodeview
   INCLUDES = -IC:/Users/gpro9/source/repos/Spyen/Spyen/include -IC:/Users/gpro9/source/repos/Spyen/Spyen/src -IC:/Users/gpro9/source/repos/Spyen/Spyen/vendor/glad/include -IC:/Users/gpro9/source/repos/Spyen/Spyen/vendor/glfw/include -IC:/Users/gpro9/source/repos/Spyen/Spyen/vendor/spdlog/include
@@ -122,7 +269,7 @@ build CMakeFiles/Spyen.dir/Spyen/vendor/glad/src/glad.c.obj: C_COMPILER__Spyen_u
   TARGET_COMPILE_PDB = CMakeFiles\Spyen.dir\
   TARGET_PDB = Spyen.pdb
 
-build CMakeFiles/Spyen.dir/CXX.dd | C$:/Users/gpro9/source/repos/Spyen/cmake-build-debug/CMakeFiles/Spyen.dir/CXXModules.json CMakeFiles/Spyen.dir/Spyen/src/Core/Engine.cpp.obj.modmap CMakeFiles/Spyen.dir/Spyen/src/Core/Log.cpp.obj.modmap CMakeFiles/Spyen.dir/Spyen/src/Window/Window.cpp.obj.modmap: CXX_DYNDEP__Spyen_Debug CMakeFiles/Spyen.dir/Spyen/src/Core/Engine.cpp.obj.ddi CMakeFiles/Spyen.dir/Spyen/src/Core/Log.cpp.obj.ddi CMakeFiles/Spyen.dir/Spyen/src/Window/Window.cpp.obj.ddi | C$:/Users/gpro9/source/repos/Spyen/cmake-build-debug/CMakeFiles/Spyen.dir/CXXDependInfo.json
+build CMakeFiles/Spyen.dir/CXX.dd | C$:/Users/gpro9/source/repos/Spyen/cmake-build-debug/CMakeFiles/Spyen.dir/CXXModules.json CMakeFiles/Spyen.dir/Spyen/src/Core/Engine.cpp.obj.modmap CMakeFiles/Spyen.dir/Spyen/src/Core/Log.cpp.obj.modmap CMakeFiles/Spyen.dir/Spyen/src/Renderer/BufferElement.cpp.obj.modmap CMakeFiles/Spyen.dir/Spyen/src/Renderer/BufferLayout.cpp.obj.modmap CMakeFiles/Spyen.dir/Spyen/src/Renderer/IndexBuffer.cpp.obj.modmap CMakeFiles/Spyen.dir/Spyen/src/Renderer/Renderer.cpp.obj.modmap CMakeFiles/Spyen.dir/Spyen/src/Renderer/Shader.cpp.obj.modmap CMakeFiles/Spyen.dir/Spyen/src/Renderer/VertexArray.cpp.obj.modmap CMakeFiles/Spyen.dir/Spyen/src/Renderer/VertexBuffer.cpp.obj.modmap CMakeFiles/Spyen.dir/Spyen/src/Window/Window.cpp.obj.modmap: CXX_DYNDEP__Spyen_Debug CMakeFiles/Spyen.dir/Spyen/src/Core/Engine.cpp.obj.ddi CMakeFiles/Spyen.dir/Spyen/src/Core/Log.cpp.obj.ddi CMakeFiles/Spyen.dir/Spyen/src/Renderer/BufferElement.cpp.obj.ddi CMakeFiles/Spyen.dir/Spyen/src/Renderer/BufferLayout.cpp.obj.ddi CMakeFiles/Spyen.dir/Spyen/src/Renderer/IndexBuffer.cpp.obj.ddi CMakeFiles/Spyen.dir/Spyen/src/Renderer/Renderer.cpp.obj.ddi CMakeFiles/Spyen.dir/Spyen/src/Renderer/Shader.cpp.obj.ddi CMakeFiles/Spyen.dir/Spyen/src/Renderer/VertexArray.cpp.obj.ddi CMakeFiles/Spyen.dir/Spyen/src/Renderer/VertexBuffer.cpp.obj.ddi CMakeFiles/Spyen.dir/Spyen/src/Window/Window.cpp.obj.ddi | C$:/Users/gpro9/source/repos/Spyen/cmake-build-debug/CMakeFiles/Spyen.dir/CXXDependInfo.json
 
 
 # =============================================================================
@@ -132,7 +279,7 @@ build CMakeFiles/Spyen.dir/CXX.dd | C$:/Users/gpro9/source/repos/Spyen/cmake-bui
 #############################################
 # Link the shared library Spyen.dll
 
-build Spyen.dll Spyen.lib: CXX_SHARED_LIBRARY_LINKER__Spyen_Debug CMakeFiles/Spyen.dir/Spyen/src/Core/Engine.cpp.obj CMakeFiles/Spyen.dir/Spyen/src/Core/Log.cpp.obj CMakeFiles/Spyen.dir/Spyen/src/Window/Window.cpp.obj CMakeFiles/Spyen.dir/Spyen/vendor/glad/src/glad.c.obj
+build Spyen.dll Spyen.lib: CXX_SHARED_LIBRARY_LINKER__Spyen_Debug CMakeFiles/Spyen.dir/Spyen/src/Core/Engine.cpp.obj CMakeFiles/Spyen.dir/Spyen/src/Core/Log.cpp.obj CMakeFiles/Spyen.dir/Spyen/src/Renderer/BufferElement.cpp.obj CMakeFiles/Spyen.dir/Spyen/src/Renderer/BufferLayout.cpp.obj CMakeFiles/Spyen.dir/Spyen/src/Renderer/IndexBuffer.cpp.obj CMakeFiles/Spyen.dir/Spyen/src/Renderer/Renderer.cpp.obj CMakeFiles/Spyen.dir/Spyen/src/Renderer/Shader.cpp.obj CMakeFiles/Spyen.dir/Spyen/src/Renderer/VertexArray.cpp.obj CMakeFiles/Spyen.dir/Spyen/src/Renderer/VertexBuffer.cpp.obj CMakeFiles/Spyen.dir/Spyen/src/Window/Window.cpp.obj CMakeFiles/Spyen.dir/Spyen/vendor/glad/src/glad.c.obj
   LANGUAGE_COMPILE_FLAGS = -O0 -D_DEBUG -D_DLL -D_MT -Xclang --dependent-lib=msvcrtd -g -Xclang -gcodeview
   LINK_FLAGS = -fuse-ld=lld-link
   LINK_LIBRARIES = -lglfw3dll.lib  -lopengl32.lib  -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32 -loldnames

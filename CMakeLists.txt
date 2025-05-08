@@ -8,10 +8,14 @@ set(CMAKE_CXX_STANDARD 20)
 
 file(GLOB_RECURSE SOURCES "${CMAKE_CURRENT_SOURCE_DIR}/Spyen/src/**/*.cpp")
 
-file(GLOB_RECURSE HEADERS "${CMAKE_CURRENT_SOURCE_DIR}/Spyen/include/*.h")
+file(GLOB_RECURSE HEADERS "${CMAKE_CURRENT_SOURCE_DIR}/Spyen/include/**/*.h")
 
 # Add the Spyen library
 add_library(Spyen SHARED ${SOURCES} Spyen/src/Core/Log.cpp ${HEADERS})
+
+target_compile_definitions(Spyen PRIVATE
+        $<$<CONFIG:Debug>:SP_DEBUG>
+)
 
 # Define SPYEN_BUILD when building the DLL itself
 target_compile_definitions(Spyen PRIVATE SPYEN_BUILD_DLL)

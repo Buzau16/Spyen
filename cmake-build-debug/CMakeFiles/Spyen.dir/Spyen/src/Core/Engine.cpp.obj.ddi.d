@@ -104,4 +104,7 @@ CMakeFiles\Spyen.dir\Spyen\src\Core\Engine.cpp.obj.ddi: \
   C:\Program\ Files\Microsoft\ Visual\ Studio\2022\Community\VC\Tools\MSVC\14.43.34808\include\xpolymorphic_allocator.h \
   C:\Program\ Files\Microsoft\ Visual\ Studio\2022\Community\VC\Tools\MSVC\14.43.34808\include\cctype \
   C:\Program\ Files\ (x86)\Windows\ Kits\10\Include\10.0.22621.0\ucrt\ctype.h \
+  C:\Users\gpro9\source\repos\Spyen\Spyen\vendor\glad\include\glad\glad.h \
+  C:\Users\gpro9\source\repos\Spyen\Spyen\vendor\glad\include\KHR\khrplatform.h \
+  C:\Users\gpro9\source\repos\Spyen\Spyen\include\Renderer\Renderer.h \
   C:\Users\gpro9\source\repos\Spyen\Spyen\include\Window\Window.h

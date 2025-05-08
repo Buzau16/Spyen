@@ -17,7 +17,7 @@ namespace Spyen {
 
     static WindowData s_WindowData;
 
-    void Window::Init(uint32_t width, uint32_t height, const char* title)
+    void Window::Init(const uint32_t width, const uint32_t height, const char* title)
     {
         if (!glfwInit())
         {
@@ -62,6 +62,12 @@ namespace Spyen {
     void Window::SwapBuffers()
     {
         glfwSwapBuffers(s_WindowData.Window);
+    }
+
+    void Window::Clear(float r, float g, float b, float a)
+    {
+        glClearColor(r, g, b, a);
+        glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
     }
 
     bool Window::IsOpen()

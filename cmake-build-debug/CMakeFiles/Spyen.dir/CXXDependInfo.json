@@ -35,6 +35,41 @@
 			"language" : "CXX",
 			"source" : "C:/Users/gpro9/source/repos/Spyen/Spyen/src/Core/Log.cpp"
 		},
+		"CMakeFiles/Spyen.dir/Spyen/src/Renderer/BufferElement.cpp.obj" : 
+		{
+			"language" : "CXX",
+			"source" : "C:/Users/gpro9/source/repos/Spyen/Spyen/src/Renderer/BufferElement.cpp"
+		},
+		"CMakeFiles/Spyen.dir/Spyen/src/Renderer/BufferLayout.cpp.obj" : 
+		{
+			"language" : "CXX",
+			"source" : "C:/Users/gpro9/source/repos/Spyen/Spyen/src/Renderer/BufferLayout.cpp"
+		},
+		"CMakeFiles/Spyen.dir/Spyen/src/Renderer/IndexBuffer.cpp.obj" : 
+		{
+			"language" : "CXX",
+			"source" : "C:/Users/gpro9/source/repos/Spyen/Spyen/src/Renderer/IndexBuffer.cpp"
+		},
+		"CMakeFiles/Spyen.dir/Spyen/src/Renderer/Renderer.cpp.obj" : 
+		{
+			"language" : "CXX",
+			"source" : "C:/Users/gpro9/source/repos/Spyen/Spyen/src/Renderer/Renderer.cpp"
+		},
+		"CMakeFiles/Spyen.dir/Spyen/src/Renderer/Shader.cpp.obj" : 
+		{
+			"language" : "CXX",
+			"source" : "C:/Users/gpro9/source/repos/Spyen/Spyen/src/Renderer/Shader.cpp"
+		},
+		"CMakeFiles/Spyen.dir/Spyen/src/Renderer/VertexArray.cpp.obj" : 
+		{
+			"language" : "CXX",
+			"source" : "C:/Users/gpro9/source/repos/Spyen/Spyen/src/Renderer/VertexArray.cpp"
+		},
+		"CMakeFiles/Spyen.dir/Spyen/src/Renderer/VertexBuffer.cpp.obj" : 
+		{
+			"language" : "CXX",
+			"source" : "C:/Users/gpro9/source/repos/Spyen/Spyen/src/Renderer/VertexBuffer.cpp"
+		},
 		"CMakeFiles/Spyen.dir/Spyen/src/Window/Window.cpp.obj" : 
 		{
 			"language" : "CXX",

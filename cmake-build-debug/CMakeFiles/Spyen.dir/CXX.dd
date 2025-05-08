@@ -3,5 +3,19 @@ build CMakeFiles/Spyen.dir/Spyen/src/Core/Engine.cpp.obj: dyndep
 
 build CMakeFiles/Spyen.dir/Spyen/src/Core/Log.cpp.obj: dyndep
 
+build CMakeFiles/Spyen.dir/Spyen/src/Renderer/BufferElement.cpp.obj: dyndep
+
+build CMakeFiles/Spyen.dir/Spyen/src/Renderer/BufferLayout.cpp.obj: dyndep
+
+build CMakeFiles/Spyen.dir/Spyen/src/Renderer/IndexBuffer.cpp.obj: dyndep
+
+build CMakeFiles/Spyen.dir/Spyen/src/Renderer/Renderer.cpp.obj: dyndep
+
+build CMakeFiles/Spyen.dir/Spyen/src/Renderer/Shader.cpp.obj: dyndep
+
+build CMakeFiles/Spyen.dir/Spyen/src/Renderer/VertexArray.cpp.obj: dyndep
+
+build CMakeFiles/Spyen.dir/Spyen/src/Renderer/VertexBuffer.cpp.obj: dyndep
+
 build CMakeFiles/Spyen.dir/Spyen/src/Window/Window.cpp.obj: dyndep
 
