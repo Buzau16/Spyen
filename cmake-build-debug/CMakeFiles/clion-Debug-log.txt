@@ -1,4 +1,4 @@
-C:\Users\gpro9\AppData\Local\Programs\CLion\bin\cmake\win\x64\bin\cmake.exe -DCMAKE_BUILD_TYPE=Debug -DCMAKE_MAKE_PROGRAM=C:/Users/gpro9/AppData/Local/Programs/CLion/bin/ninja/win/x64/ninja.exe "-DCMAKE_C_COMPILER=C:/Program Files/LLVM/bin/clang.exe" "-DCMAKE_CXX_COMPILER=C:/Program Files/LLVM/bin/clang++.exe" -G Ninja -S C:\Users\gpro9\source\repos\Spyen -B C:\Users\gpro9\source\repos\Spyen\cmake-build-debug
--- Configuring done (0.1s)
+/home/buzauu/.local/share/JetBrains/Toolbox/apps/clion/bin/cmake/linux/x64/bin/cmake -DCMAKE_BUILD_TYPE=Debug -G "Unix Makefiles" -S /home/buzauu/CLionProjects/Spyen -B /home/buzauu/CLionProjects/Spyen/cmake-build-debug
+-- Configuring done (0.0s)
 -- Generating done (0.1s)
--- Build files have been written to: C:/Users/gpro9/source/repos/Spyen/cmake-build-debug
+-- Build files have been written to: /home/buzauu/CLionProjects/Spyen/cmake-build-debug

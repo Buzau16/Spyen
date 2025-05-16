@@ -1,4 +1,4 @@
-C:/Users/gpro9/source/repos/Spyen/cmake-build-debug/CMakeFiles/Spyen.dir
-C:/Users/gpro9/source/repos/Spyen/cmake-build-debug/CMakeFiles/Sandbox.dir
-C:/Users/gpro9/source/repos/Spyen/cmake-build-debug/CMakeFiles/edit_cache.dir
-C:/Users/gpro9/source/repos/Spyen/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/home/buzauu/CLionProjects/Spyen/cmake-build-debug/CMakeFiles/Spyen.dir
+/home/buzauu/CLionProjects/Spyen/cmake-build-debug/CMakeFiles/Sandbox.dir
+/home/buzauu/CLionProjects/Spyen/cmake-build-debug/CMakeFiles/edit_cache.dir
+/home/buzauu/CLionProjects/Spyen/cmake-build-debug/CMakeFiles/rebuild_cache.dir

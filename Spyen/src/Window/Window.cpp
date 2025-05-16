@@ -19,10 +19,10 @@ namespace Spyen {
 
     void Window::Init(const uint32_t width, const uint32_t height, const char* title)
     {
+        SPY_CORE_INFO("Creating window {0}", title);
         if (!glfwInit())
         {
             throw std::runtime_error("Failed to initialize GLFW!");
-            return;
         }
         s_WindowData.Width = width;
         s_WindowData.Height = height;

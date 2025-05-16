@@ -1,5 +1,6 @@
 #pragma once
 #include "Core/Core.h"
+#include "Math/fwd.hpp"
 
 namespace Spyen
 {
@@ -10,10 +11,11 @@ namespace Spyen
         static void Shutdown();
 
 
-        static void BeginScene();
-        static void EndScene();
+        static void BeginBatch();
+        static void EndBatch();
         static void Flush();
 
         static void SubmitQuad(const Vec2& pos, float scale, float rotation, const Color& color);
+        static void SubmitQuad(const glm::mat4& transform, const Color& color);
     };
 }

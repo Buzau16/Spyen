@@ -1,11 +1,10 @@
 #pragma once
 
 #ifdef SPYEN_BUILD_DLL
-#define SPYEN_API __declspec(dllexport)
+#define SPYEN_API __attribute__((visibility("default")))
 #else
-#define SPYEN_API __declspec(dllimport)
+#define SPYEN_API
 #endif
-#include <cstdint>
 
 
 namespace Spyen {

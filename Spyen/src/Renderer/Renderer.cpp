@@ -48,13 +48,13 @@ namespace Spyen
 
     void Renderer::Init()
     {
-        SPY_CORE_INFO("Initializing the renderer");
+        SPY_CORE_INFO("Initializing Spyen::Renderer");
 
-        s_Data.QuadVertexBufferBase = new QuadVertex[s_Data.MaxVertices];
+        s_Data.QuadVertexBufferBase = new QuadVertex[RendererData::MaxVertices];
         s_Data.QuadVertexArray = VertexArray::Create();
         s_Data.QuadVertexArray->Bind();
 
-        s_Data.QuadVertexBuffer = VertexBuffer::Create(nullptr, s_Data.MaxVertices * sizeof(QuadVertex));
+        s_Data.QuadVertexBuffer = VertexBuffer::Create(nullptr, RendererData::MaxVertices * sizeof(QuadVertex));
         s_Data.QuadVertexBuffer->Bind();
         s_Data.QuadVertexBuffer->SetLayout({
                 { ShaderDataType::Float2, "a_Position" },
@@ -68,9 +68,9 @@ namespace Spyen
         s_Data.QuadPositions[2] = { 0.5f, 0.5f, 0.0f, 1.0f };
         s_Data.QuadPositions[3] = { -0.5f, 0.5f, 0.0f, 1.0f };
 
-        uint32_t* indices = new uint32_t[s_Data.MaxIndices];
+        uint32_t* indices = new uint32_t[RendererData::MaxIndices];
         uint32_t offset = 0;
-        for (uint32_t i = 0; i < s_Data.MaxIndices; i += 6) {
+        for (uint32_t i = 0; i < RendererData::MaxIndices; i += 6) {
             indices[i + 0] = offset + 0;
             indices[i + 1] = offset + 1;
             indices[i + 2] = offset + 2;
@@ -79,7 +79,7 @@ namespace Spyen
             indices[i + 5] = offset + 0;
             offset += 4;
         }
-        s_Data.QuadIndexBuffer = IndexBuffer::Create(indices, s_Data.MaxIndices);
+        s_Data.QuadIndexBuffer = IndexBuffer::Create(indices, RendererData::MaxIndices);
         s_Data.QuadVertexArray->AddIndexBuffer(s_Data.QuadIndexBuffer);
         delete[] indices;
 
@@ -96,13 +96,13 @@ namespace Spyen
         delete[] s_Data.QuadVertexBufferBase;
     }
 
-    void Renderer::BeginScene()
+    void Renderer::BeginBatch()
     {
         s_Data.QuadVertexBufferPtr = s_Data.QuadVertexBufferBase;
         s_Data.QuadIndexCount = 0;
     }
 
-    void Renderer::EndScene()
+    void Renderer::EndBatch()
     {
         const GLsizeiptr size = reinterpret_cast<uint8_t*>(s_Data.QuadVertexBufferPtr) - reinterpret_cast<uint8_t*>(s_Data.QuadVertexBufferBase);
         s_Data.QuadVertexBuffer->SetData(s_Data.QuadVertexBufferBase, size);
@@ -124,21 +124,17 @@ namespace Spyen
         transform = glm::rotate(transform, glm::radians(rotation), glm::vec3(0.0f, 0.0f, 1.0f));
         transform = glm::scale(transform, glm::vec3(scale, scale, 1.0f));
 
-        glm::vec2 textCoords[4] = {
-            { 0.0f, 0.0f },
-            { 1.0f, 0.0f },
-            { 1.0f, 1.0f },
-            { 0.0f, 1.0f }
-        };
+        SubmitQuad(transform, color);
+    }
 
-        if (s_Data.QuadIndexCount >= s_Data.MaxIndices) {
-            EndScene();
-            Flush();
-            BeginScene();
+    void Renderer::SubmitQuad(const glm::mat4& transform, const Color &color) {
+        if (s_Data.QuadIndexCount >= RendererData::MaxIndices) {
+            EndBatch();
+            BeginBatch();
         }
 
-        for (int i = 0; i < 4; i++) {
-            s_Data.QuadVertexBufferPtr->Position = transform * s_Data.QuadPositions[i];
+        for (auto QuadPosition : s_Data.QuadPositions) {
+            s_Data.QuadVertexBufferPtr->Position = transform * QuadPosition;
             s_Data.QuadVertexBufferPtr->Color = glm::vec4(color.r, color.g, color.b, color.a);
             s_Data.QuadVertexBufferPtr++;
         }
