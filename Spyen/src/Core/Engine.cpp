@@ -16,6 +16,7 @@ namespace Spyen {
         Window window;
         Color BackgroundColor;
         std::shared_ptr<Scene> ActiveScene;
+        std::unordered_map<std::string, std::shared_ptr<Scene>> Scenes;
     };
     static EngineData s_EngineData;
 
@@ -31,8 +32,29 @@ namespace Spyen {
         s_EngineData.BackgroundColor = {r,g,b,a};
     }
 
-    void Engine::SetActiveScene(const std::shared_ptr<Scene>& scene) {
-        s_EngineData.ActiveScene = scene;
+    Scene* Engine::CreateScene(const std::string &name) {
+        if (s_EngineData.Scenes.contains(name)) {
+            SPY_CORE_WARN("Scene {} already exist!", name);
+            return nullptr;
+        }
+        s_EngineData.Scenes[name] = std::make_shared<Scene>();
+        return s_EngineData.Scenes[name].get();
+    }
+
+    void Engine::SetActiveScene(const std::string &name) {
+        if (!s_EngineData.Scenes.contains(name)) {
+            SPY_CORE_ERROR("Scene {} does not exist!", name);
+        }
+
+        s_EngineData.ActiveScene = s_EngineData.Scenes[name];
+    }
+
+    Scene* Engine::GetSceneByName(const std::string &name) {
+        if (!s_EngineData.Scenes.contains(name)) {
+            SPY_CORE_ERROR("Scene {} does not exist!", name);
+            return nullptr;
+        }
+        return s_EngineData.Scenes[name].get();
     }
 
     void Engine::Run()

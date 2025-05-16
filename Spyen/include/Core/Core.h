@@ -10,7 +10,7 @@
 namespace Spyen {
     struct Color
     {
-        float r, g, b, a;
+        float r, g, b, a = 1.0f;
     };
 
     struct Vec2

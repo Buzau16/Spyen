@@ -23,10 +23,7 @@ namespace Spyen {
         auto view = m_Registry.view<ColorComponent, TransformComponent>();
 
         Renderer::BeginBatch();
-        for (auto entity : view) {
-            auto& color = view.get<ColorComponent>(entity);
-            auto& transform = view.get<TransformComponent>(entity);
-
+        for (auto [entity, color, transform] : view.each()) {
             Renderer::SubmitQuad(transform.GetTransform(), color.Color);
         }
 
