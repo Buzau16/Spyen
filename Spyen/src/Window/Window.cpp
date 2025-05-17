@@ -45,8 +45,11 @@ namespace Spyen {
             throw std::runtime_error("Failed to initialize GLAD!");
         }
 
-
-
+        glEnable(GL_DEPTH_TEST);
+        glEnable(GL_CULL_FACE);
+        glCullFace(GL_BACK);
+        glFrontFace(GL_CCW);
+        glViewport(0, 0, width, height);
     }
 
     void Window::PollEvents()
@@ -73,6 +76,10 @@ namespace Spyen {
     bool Window::IsOpen()
     {
         return !glfwWindowShouldClose(s_WindowData.Window);
+    }
+
+    void Window::SetVsync(bool value) {
+        glfwSwapInterval(value);
     }
 
     uint32_t Window::GetWidth() const
