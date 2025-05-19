@@ -1,5 +1,6 @@
 #pragma once
 
+#include <Input/Input.h>
 #include <Core/Core.h>
 #include <Core/LogMacros.h>
 #include <Core/Engine.h>

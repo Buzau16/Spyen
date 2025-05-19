@@ -28,7 +28,7 @@ namespace Spyen {
         }
 
         template<typename T>
-        bool HasComponent() const {
+        [[nodiscard]] bool HasComponent() const {
             return m_ParentScene->m_Registry.all_of<T>(m_EntityHandle);
         }
 

@@ -1,14 +1,25 @@
 #include <Spyen.h>
 
 void Move(Spyen::Timestep ts) {
-    Spyen::Engine::GetSceneByName("1")->GetEntityByName("test")->GetComponent<Spyen::TransformComponent>().Rotation += 10.0f * ts;
-    Spyen::Engine::GetSceneByName("1")->GetEntityByName("test")->GetComponent<Spyen::ColorComponent>().Color.r -= 0.1f * ts;
+    auto& trans = Spyen::Engine::GetSceneByName("1")->GetEntityByName("test")->GetComponent<Spyen::TransformComponent>();
+    if (Spyen::Input::IsKeyPressed(Spyen::SPK_W)) {
+        trans.Position.y += 1.f * ts;
+    }
+    if (Spyen::Input::IsKeyPressed(Spyen::SPK_S)) {
+        trans.Position.y -= 1.f * ts;
+    }
+    if (Spyen::Input::IsKeyPressed(Spyen::SPK_D)) {
+        trans.Position.x += 1.f * ts;
+    }
+    if (Spyen::Input::IsKeyPressed(Spyen::SPK_A)) {
+        trans.Position.x -= 1.f * ts;
+    }
 }
 
 int main(int argc, char* argv[])
 {
 
-    Spyen::Engine::Init(800,600,"Spyen");
+    Spyen::Engine::Init(640,360,"Spyen");
     Spyen::Engine::SetBackgroundColor(0.2f, 0.3f, 0.8f);
     Spyen::Engine::SetVsync(false);
 
@@ -17,7 +28,7 @@ int main(int argc, char* argv[])
     ent->AddComponent<Spyen::TransformComponent>();
     ent->AddComponent<Spyen::ColorComponent>();
     ent->GetComponent<Spyen::ColorComponent>().Color = {1.0f, 1.0f, 1.0f};
-    ent->GetComponent<Spyen::TransformComponent>().Rotation = 45.0f;
+    ent->GetComponent<Spyen::TransformComponent>().Rotation = 0.0f;
 
     scene->AddSystem(Move);
 

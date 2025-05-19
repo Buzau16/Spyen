@@ -6,8 +6,8 @@
 #include <Core/Engine.h>
 
 #include "Core/Log.h"
-#include "glad/glad.h"
 #include "GLFW/glfw3.h"
+#include "Input/Input.h"
 #include "Renderer/Renderer.h"
 #include "Scene/Scene.h"
 #include "Time/Timestep.h"
@@ -70,6 +70,8 @@ namespace Spyen {
 
         while (s_EngineData.Window.IsOpen())
         {
+            Input::Update();
+
             s_EngineData.Window.PollEvents();
 
             const auto time = static_cast<float>(glfwGetTime());

@@ -3,6 +3,7 @@
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
 #include <spdlog/spdlog.h>
+#include <Input/Input.h>
 
 #include "Core/LogMacros.h"
 
@@ -15,7 +16,7 @@ namespace Spyen {
         GLFWwindow* Window{};
     };
 
-    static WindowData s_WindowData;
+    WindowData g_WindowData;
 
     void Window::Init(const uint32_t width, const uint32_t height, const char* title)
     {
@@ -24,21 +25,21 @@ namespace Spyen {
         {
             throw std::runtime_error("Failed to initialize GLFW!");
         }
-        s_WindowData.Width = width;
-        s_WindowData.Height = height;
-        s_WindowData.Title = title;
+        g_WindowData.Width = width;
+        g_WindowData.Height = height;
+        g_WindowData.Title = title;
 
         glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 4);
         glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 6);
         glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
 
-        s_WindowData.Window = glfwCreateWindow(width, height, title, nullptr, nullptr);
-        if (!s_WindowData.Window)
+        g_WindowData.Window = glfwCreateWindow(width, height, title, nullptr, nullptr);
+        if (!g_WindowData.Window)
         {
             throw std::runtime_error("Failed to create GLFW window!");
         }
-        glfwMakeContextCurrent(s_WindowData.Window);
-        glfwSetWindowUserPointer(s_WindowData.Window, &s_WindowData);
+        glfwMakeContextCurrent(g_WindowData.Window);
+        glfwSetWindowUserPointer(g_WindowData.Window, &g_WindowData);
 
         if (!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress))
         {
@@ -50,6 +51,26 @@ namespace Spyen {
         glCullFace(GL_BACK);
         glFrontFace(GL_CCW);
         glViewport(0, 0, width, height);
+
+        glfwSetKeyCallback(g_WindowData.Window, [](GLFWwindow* window, int key, int scancode, int action, int mods) {
+            if (action == GLFW_PRESS) {
+                Input::SetKeyStates(key, true);
+            }else if (action == GLFW_RELEASE){
+                Input::SetKeyStates(key, false);
+            }
+        });
+
+        glfwSetMouseButtonCallback(g_WindowData.Window, [](GLFWwindow* window, int button, int action, int mods) {
+            if (action == GLFW_PRESS) {
+                Input::SetMouseButtonState(button, true);
+            }else if (action == GLFW_RELEASE) {
+                Input::SetMouseButtonState(button, false);
+            }
+        });
+
+        glfwSetCursorPosCallback(g_WindowData.Window, [](GLFWwindow* window, double x, double y) {
+            Input::SetMousePos(static_cast<float>(x),static_cast<float>(y));
+        });
     }
 
     void Window::PollEvents()
@@ -59,12 +80,12 @@ namespace Spyen {
 
     void Window::Close()
     {
-        glfwSetWindowShouldClose(s_WindowData.Window, true);
+        glfwSetWindowShouldClose(g_WindowData.Window, true);
     }
 
     void Window::SwapBuffers()
     {
-        glfwSwapBuffers(s_WindowData.Window);
+        glfwSwapBuffers(g_WindowData.Window);
     }
 
     void Window::Clear(float r, float g, float b, float a)
@@ -75,7 +96,7 @@ namespace Spyen {
 
     bool Window::IsOpen()
     {
-        return !glfwWindowShouldClose(s_WindowData.Window);
+        return !glfwWindowShouldClose(g_WindowData.Window);
     }
 
     void Window::SetVsync(bool value) {
@@ -84,11 +105,11 @@ namespace Spyen {
 
     uint32_t Window::GetWidth() const
     {
-        return s_WindowData.Width;
+        return g_WindowData.Width;
     }
 
     uint32_t Window::GetHeight() const
     {
-        return s_WindowData.Height;
+        return g_WindowData.Height;
     }
 } // Spyen
