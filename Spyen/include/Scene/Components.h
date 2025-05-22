@@ -2,6 +2,7 @@
 #include "Core/Core.h"
 #include <Math/glm.hpp>
 #include "Math/ext/matrix_transform.hpp"
+#include "Renderer/Texture.h"
 
 namespace Spyen {
     struct TransformComponent {
@@ -17,9 +18,17 @@ namespace Spyen {
         }
     };
 
-    struct ColorComponent {
+    struct RenderComponent {
         Spyen::Color Color = {0.0f, 0.0f, 0.0f, 1.0f};
-        ColorComponent() = default;
-        ColorComponent(const Spyen::Color color) : Color(color) {};
+        std::shared_ptr<Texture> Texture = nullptr;
+        RenderComponent() = default;
+        RenderComponent(const Spyen::Color& color) : Color(color) {};
+        RenderComponent(const std::shared_ptr<Spyen::Texture>& texture) : Texture(texture) {};
+    };
+
+    struct TagComponent {
+        std::string Tag;
+        TagComponent() = default;
+        TagComponent(const std::string& tag) : Tag(tag){};
     };
 }

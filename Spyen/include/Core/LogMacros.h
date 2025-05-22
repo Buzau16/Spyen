@@ -4,6 +4,8 @@
 #define FMT_HEADER_ONLY
 #include "fmt/format.h"
 
+#include <csignal>
+
 #ifndef SP_DISABLE_LOGGING
 #define SPY_CORE_INFO(...)     ::Spyen::Log::CoreInfo(fmt::format(__VA_ARGS__))
 #define SPY_CORE_WARN(...)     ::Spyen::Log::CoreWarn (fmt::format(__VA_ARGS__))
@@ -30,8 +32,8 @@
 
 
 #ifdef SP_DEBUG
-#define SPY_ASSERT(x, ...) { if(!(x)) { SPY_ERROR("Assertion Failed: {0}", __VA_ARGS__);} }
-#define SPY_CORE_ASSERT(x, ...) { if(!(x)) { SPY_CORE_ERROR("Assertion Failed: {0}", __VA_ARGS__); } }
+#define SPY_ASSERT(x, ...) { if(!(x)) { SPY_ERROR("Assertion Failed: {0}", __VA_ARGS__); raise(SIGTRAP); } }
+#define SPY_CORE_ASSERT(x, ...) { if(!(x)) { SPY_CORE_ERROR("Assertion Failed: {0}", __VA_ARGS__); raise(SIGTRAP); } }
 
 #else
 

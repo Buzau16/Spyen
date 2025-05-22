@@ -16,6 +16,7 @@ namespace Spyen {
     public:
         weak_ptr<Entity> CreateEntity(const std::string& name);
         weak_ptr<Entity> GetEntityByName(const std::string& name);
+        std::vector<weak_ptr<Entity>> GetEntitiesByTag(const std::string& tag);
         void AddSystem(const System& system);
 
 

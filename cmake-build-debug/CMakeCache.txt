@@ -265,6 +265,9 @@ PKG_CONFIG_ARGN:STRING=
 //pkg-config executable
 PKG_CONFIG_EXECUTABLE:FILEPATH=/usr/bin/pkg-config
 
+//No help, variable specified on the command line.
+SP_DEBUG:UNINITIALIZED=ON
+
 //Value Computed by CMake
 Sandbox_BINARY_DIR:STATIC=/home/buzauu/CLionProjects/Spyen/cmake-build-debug
 
