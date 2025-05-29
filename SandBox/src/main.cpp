@@ -1,3 +1,4 @@
+#include <iostream>
 #include <Spyen.h>
 
 void Move(Spyen::Timestep ts) {
@@ -18,7 +19,6 @@ void Move(Spyen::Timestep ts) {
 
 int main(int argc, char* argv[])
 {
-
     Spyen::Engine::Init(640,360,"Spyen");
     Spyen::Engine::SetBackgroundColor(0.2f, 0.3f, 0.8f);
     Spyen::Engine::SetVsync(false);

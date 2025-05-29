@@ -11,7 +11,7 @@
 # =============================================================================
 
 # =============================================================================
-# Project: Sandbox
+# Project: Archiver
 # Configurations: Debug
 # =============================================================================
 
@@ -229,6 +229,38 @@ build Sandbox: CXX_EXECUTABLE_LINKER__Sandbox_Debug CMakeFiles/Sandbox.dir/SandB
   TARGET_FILE = Sandbox
   TARGET_PDB = Sandbox.dbg
 
+# =============================================================================
+# Object build statements for EXECUTABLE target Spyen_Archiver
+
+
+#############################################
+# Order-only phony target for Spyen_Archiver
+
+build cmake_object_order_depends_target_Spyen_Archiver: phony || .
+
+build CMakeFiles/Spyen_Archiver.dir/SpyenAssetArchiver/src/main.c.o: C_COMPILER__Spyen_Archiver_unscanned_Debug /home/buzauu/CLionProjects/Spyen/SpyenAssetArchiver/src/main.c || cmake_object_order_depends_target_Spyen_Archiver
+  DEP_FILE = CMakeFiles/Spyen_Archiver.dir/SpyenAssetArchiver/src/main.c.o.d
+  FLAGS = -g -std=gnu99 -fcolor-diagnostics
+  INCLUDES = -I/home/buzauu/CLionProjects/Spyen/Spyen/include -I/home/buzauu/CLionProjects/Spyen/Spyen/src -I/home/buzauu/CLionProjects/Spyen/Spyen/vendor/glad/include -I/home/buzauu/CLionProjects/Spyen/Spyen/vendor/glfw/include -I/home/buzauu/CLionProjects/Spyen/Spyen/vendor/spdlog/include -I/home/buzauu/CLionProjects/Spyen/SpyenAssetArchiver/include
+  OBJECT_DIR = CMakeFiles/Spyen_Archiver.dir
+  OBJECT_FILE_DIR = CMakeFiles/Spyen_Archiver.dir/SpyenAssetArchiver/src
+
+
+# =============================================================================
+# Link build statements for EXECUTABLE target Spyen_Archiver
+
+
+#############################################
+# Link the executable Spyen_Archiver
+
+build Spyen_Archiver: C_EXECUTABLE_LINKER__Spyen_Archiver_Debug CMakeFiles/Spyen_Archiver.dir/SpyenAssetArchiver/src/main.c.o
+  FLAGS = -g
+  OBJECT_DIR = CMakeFiles/Spyen_Archiver.dir
+  POST_BUILD = :
+  PRE_LINK = :
+  TARGET_FILE = Spyen_Archiver
+  TARGET_PDB = Spyen_Archiver.dbg
+
 
 #############################################
 # Utility command for edit_cache
@@ -265,7 +297,7 @@ build Spyen: phony libSpyen.so
 #############################################
 # Folder: /home/buzauu/CLionProjects/Spyen/cmake-build-debug
 
-build all: phony libSpyen.so Sandbox
+build all: phony libSpyen.so Sandbox Spyen_Archiver
 
 # =============================================================================
 # Built-in targets
