@@ -25,7 +25,7 @@ int main(int argc, char* argv[])
 
     auto scene = Spyen::Engine::CreateScene("1");
     auto ent = scene->CreateEntity("test");
-    ent->GetComponent<Spyen::RenderComponent>().Texture = std::make_shared<Spyen::Texture>("assets/Player.png");
+    ent->GetComponent<Spyen::RenderComponent>().Color = {1.0f, 1.0f,1.0f, 1.0f};
     ent->GetComponent<Spyen::TransformComponent>().Rotation = 0.0f;
 
     scene->AddSystem(Move);

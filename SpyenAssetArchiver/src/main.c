@@ -17,6 +17,8 @@ struct Entry {
     void* data;
 };
 
+#define ENTRY_NO_PTR_SIZE 12
+
 struct File {
     Header header;
     Entry* entries;
@@ -39,7 +41,7 @@ bool packer_init(const char *filename) {
         return EXIT_FAILURE;
     }
 
-    binary_file.current_data_offset = sizeof(Header);
+    binary_file.current_data_offset = 0;
     binary_file.header.entry_count = 0;
 
     return EXIT_SUCCESS;
@@ -49,6 +51,28 @@ bool packer_shutdown() {
         printf("Can not close an unopened file! %s\n", __FUNCTION__);
         return EXIT_FAILURE;
     }
+
+    // write the header entry count
+    _write_u16_le(binary_file.header.entry_count);
+
+    binary_file.current_data_offset = sizeof(Header) + (ENTRY_NO_PTR_SIZE * binary_file.header.entry_count);
+
+    // write the entries, NO DATA!
+    for (uint32_t i = 0; i < binary_file.header.entry_count; i++) {
+        _write_u32_le(binary_file.entries[i].hash);
+        _write_u32_le(binary_file.current_data_offset);
+        binary_file.current_data_offset += binary_file.entries[i].size;
+        _write_u32_le(binary_file.entries[i].size);
+    }
+
+    // Write the data
+    for (uint32_t i = 0; i < binary_file.header.entry_count; i++) {
+        fwrite(binary_file.entries[i].data, binary_file.entries[i].size, 1, output_file);
+        free(binary_file.entries[i].data);
+    }
+
+    free(binary_file.entries);
+    fclose(output_file);
 
     return EXIT_SUCCESS;
 }
@@ -69,6 +93,17 @@ bool packer_add_entry(const char *name, void *data, size_t size) {
         printf("Cannot write to an unopened file! %s\n", __FUNCTION__);
         return EXIT_FAILURE;
     }
+
+#define INDEX binary_file.header.entry_count
+
+    binary_file.entries = realloc(binary_file.entries, sizeof(Entry) * (binary_file.header.entry_count + 1));
+
+    binary_file.entries[INDEX].hash = _fnv1a_hash(name);
+    binary_file.entries[INDEX].size = size;
+    binary_file.entries[INDEX].data = malloc(size);
+    memcpy(binary_file.entries[INDEX].data, data, size);
+
+    binary_file.header.entry_count++;
     return EXIT_SUCCESS;
 }
 
@@ -122,20 +157,28 @@ uint32_t _char_to_u32_le(const char *str) {
 }
 
 uint32_t _fnv1a_hash(const char *str) {
-    const uint32_t FNV_PRIME = 0x811c9dc5;
+    const uint32_t FNV_PRIME = 0x1000193;
     uint32_t result = 0x811c9dc5;
-    for (uint32_t i = 0; i < strlen(str); str++, i++) {
+    for (; *str; str++) {
+        result ^= (uint8_t)(*str);
         result *= FNV_PRIME;
-        result ^= (*str);
     }
     return result;
 }
 
 int main(int argv, char *argc[]) {
     packer_init("spak");
+    typedef struct Position {
+        float x;
+        float y;
+    } Position;
+    Position pos = {2.4f, 1.2f};
     packer_write_header("SPAW", 0, 1);
     float scale = 1.0f;
+    float rotation = 45.0f;
+    packer_add_entry("position", &pos, sizeof(pos));
     packer_add_entry("scale", &scale, sizeof(scale));
+    packer_add_entry("rotation", &rotation, sizeof(rotation));
     packer_shutdown();
 
     return 0;
