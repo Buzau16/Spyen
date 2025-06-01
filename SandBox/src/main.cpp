@@ -25,7 +25,10 @@ int main(int argc, char* argv[])
 
     auto scene = Spyen::Engine::CreateScene("1");
     auto ent = scene->CreateEntity("test");
-    ent->GetComponent<Spyen::RenderComponent>().Color = {1.0f, 1.0f,1.0f, 1.0f};
+    auto& renderComp = ent->GetComponent<Spyen::RenderComponent>();
+renderComp.Color = {1.0f, 1.0f, 1.0f, 1.0f};
+std::cout << "Color set: " << renderComp.Color.r << ", " << renderComp.Color.g << ", " 
+          << renderComp.Color.b << ", " << renderComp.Color.a << std::endl;
     ent->GetComponent<Spyen::TransformComponent>().Rotation = 0.0f;
 
     scene->AddSystem(Move);

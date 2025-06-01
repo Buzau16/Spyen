@@ -30,13 +30,18 @@ SOFTWARE.
 
 typedef struct Header Header;
 typedef struct Entry Entry;
+typedef struct ImageEntry ImageEntry;
+typedef struct SoundEntry SoundEntry; //TODO: to be implemented!
 typedef struct File File;
 
 bool packer_init(const char* filename);
 bool packer_shutdown();
+void packer_set_mode(uint8_t mode);
 bool packer_write_header(const char* signature, uint8_t version_major, uint8_t version_minor);
-bool packer_add_entry(const char* name, void* data, size_t size);
+// filepath is used only for texture/sound datatypes!
+bool packer_add_entry(const char* name, const char* filepath, const void * data, size_t size);
 
+bool _resize_entry_buffer(size_t size);
 void _write_u32_le(uint32_t val);
 void _write_u16_le(uint16_t val);
 void _write_u8_le(uint8_t val);

@@ -2,6 +2,15 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
+#define STB_IMAGE_IMPLEMENTATION
+#include "stb_image.h"
+
+typedef enum DataTypes {
+    NONE,
+    TEXTURE,
+    SOUND,
+    OTHER
+} DataType;
 
 struct Header {
     uint32_t signature;
@@ -17,11 +26,26 @@ struct Entry {
     void* data;
 };
 
-#define ENTRY_NO_PTR_SIZE 12
+struct ImageEntry {
+    uint32_t hash;
+    uint32_t offset;
+    uint32_t size;
+    uint16_t width;
+    uint16_t height;
+    uint8_t channels;
+    void* data;
+};
+
+#define OTHER_ENTRY_NO_PTR_SIZE 12
+#define IMAGE_ENTRY_NO_PTR_SIZE 20
+
+#define INDEX binary_file.header.entry_count
 
 struct File {
+    DataType type;
     Header header;
-    Entry* entries;
+    Entry* other_entries;
+    ImageEntry* image_entries;
     uint32_t current_data_offset;
 };
 
@@ -55,26 +79,64 @@ bool packer_shutdown() {
     // write the header entry count
     _write_u16_le(binary_file.header.entry_count);
 
-    binary_file.current_data_offset = sizeof(Header) + (ENTRY_NO_PTR_SIZE * binary_file.header.entry_count);
 
-    // write the entries, NO DATA!
-    for (uint32_t i = 0; i < binary_file.header.entry_count; i++) {
-        _write_u32_le(binary_file.entries[i].hash);
-        _write_u32_le(binary_file.current_data_offset);
-        binary_file.current_data_offset += binary_file.entries[i].size;
-        _write_u32_le(binary_file.entries[i].size);
+    switch (binary_file.type) {
+        case NONE: {
+            printf("Data type is NONE!!");
+            return EXIT_FAILURE;
+        }
+        case TEXTURE: {
+            binary_file.current_data_offset = sizeof(Header) + (IMAGE_ENTRY_NO_PTR_SIZE * binary_file.header.entry_count);
+            for (uint32_t i = 0; i < binary_file.header.entry_count; i++) {
+                _write_u32_le(binary_file.image_entries[i].hash);
+                _write_u32_le(binary_file.current_data_offset);
+                binary_file.current_data_offset += binary_file.image_entries[i].size;
+                _write_u32_le(binary_file.image_entries[i].size);
+                _write_u16_le(binary_file.image_entries[i].width);
+                _write_u16_le(binary_file.image_entries[i].height);
+                _write_u16_le(binary_file.image_entries[i].channels);
+            }
+
+            for (uint32_t i = 0; i < binary_file.header.entry_count; i++) {
+                fwrite(binary_file.image_entries[i].data, binary_file.image_entries[i].size, 1, output_file);
+                free(binary_file.image_entries[i].data);
+            }
+
+            free(binary_file.other_entries);
+            fclose(output_file);
+
+            return EXIT_SUCCESS;
+        }
+        case SOUND: {
+            break;
+        }
+        case OTHER: {
+            binary_file.current_data_offset = sizeof(Header) + (OTHER_ENTRY_NO_PTR_SIZE * binary_file.header.entry_count);
+
+            // write the entries, NO DATA!
+            for (uint32_t i = 0; i < binary_file.header.entry_count; i++) {
+                _write_u32_le(binary_file.other_entries[i].hash);
+                _write_u32_le(binary_file.current_data_offset);
+                binary_file.current_data_offset += binary_file.other_entries[i].size;
+                _write_u32_le(binary_file.other_entries[i].size);
+            }
+
+            // Write the data
+            for (uint32_t i = 0; i < binary_file.header.entry_count; i++) {
+                fwrite(binary_file.other_entries[i].data, binary_file.other_entries[i].size, 1, output_file);
+                free(binary_file.other_entries[i].data);
+            }
+
+            free(binary_file.other_entries);
+            fclose(output_file);
+
+            return EXIT_SUCCESS;
+        }
     }
-
-    // Write the data
-    for (uint32_t i = 0; i < binary_file.header.entry_count; i++) {
-        fwrite(binary_file.entries[i].data, binary_file.entries[i].size, 1, output_file);
-        free(binary_file.entries[i].data);
-    }
-
-    free(binary_file.entries);
-    fclose(output_file);
-
-    return EXIT_SUCCESS;
+    return EXIT_FAILURE;
+}
+void packer_set_mode(const uint8_t mode) {
+    binary_file.type = mode;
 }
 bool packer_write_header(const char *signature, uint8_t version_major, uint8_t version_minor) {
     if (!output_file) {
@@ -88,22 +150,90 @@ bool packer_write_header(const char *signature, uint8_t version_major, uint8_t v
 
     return EXIT_SUCCESS;
 }
-bool packer_add_entry(const char *name, void *data, size_t size) {
-    if (!output_file) {
-        printf("Cannot write to an unopened file! %s\n", __FUNCTION__);
-        return EXIT_FAILURE;
+//
+bool packer_add_entry(const char *name, const char *filepath, const void *data, const size_t size) {
+    switch (binary_file.type) {
+        case NONE: {
+            printf("No type set! %s\n", __FUNCTION__);
+            return EXIT_FAILURE;
+        }
+        case TEXTURE: {
+            _resize_entry_buffer(sizeof(Header) + (IMAGE_ENTRY_NO_PTR_SIZE * (binary_file.header.entry_count + 1)));
+            int x, y, c;
+            unsigned char *image_data = stbi_load(filepath, &x, &y, &c, 0);
+            if (!image_data) {
+                printf("Failed to load image: %s\n", filepath);
+                return EXIT_FAILURE;
+            }
+
+            binary_file.image_entries[INDEX].width = (uint16_t) x;
+            binary_file.image_entries[INDEX].height = (uint16_t) y;
+            binary_file.image_entries[INDEX].channels = (uint8_t) c;
+            binary_file.image_entries[INDEX].hash = _fnv1a_hash(name);
+            binary_file.image_entries[INDEX].size = binary_file.image_entries[INDEX].width *
+                                                    binary_file.image_entries[INDEX].height *
+                                                    binary_file.image_entries[INDEX].channels;
+            binary_file.image_entries[INDEX].data = malloc(binary_file.image_entries[INDEX].size);
+            memcpy(binary_file.image_entries[INDEX].data, image_data, binary_file.image_entries[INDEX].size);
+
+            stbi_image_free(image_data);
+            binary_file.header.entry_count++;
+            return EXIT_SUCCESS;
+        }
+        case SOUND: {
+            break;
+        }
+        case OTHER: {
+            if (size == 0) {
+                printf("Please provide the data's size!\n");
+                return EXIT_FAILURE;
+            }
+            if (data == NULL) {
+                printf("Please provide the data!\n");
+                return EXIT_FAILURE;
+            }
+            _resize_entry_buffer(sizeof(Header) + (OTHER_ENTRY_NO_PTR_SIZE * (binary_file.header.entry_count + 1)));
+
+            binary_file.other_entries[INDEX].hash = _fnv1a_hash(name);
+            binary_file.other_entries[INDEX].size = size;
+            binary_file.other_entries[INDEX].data = malloc(size);
+            memcpy(binary_file.other_entries[INDEX].data, data, size);
+
+            binary_file.header.entry_count++;
+            return EXIT_SUCCESS;
+        }
+    }
+    return EXIT_FAILURE;
+}
+bool _resize_entry_buffer(size_t size) {
+    switch (binary_file.type) {
+        case NONE: {
+            printf("DATA TYPE IS NONE!!\n");
+            return EXIT_FAILURE;
+        }
+        case TEXTURE: {
+            ImageEntry* temp = realloc(binary_file.image_entries, size);
+            if (!temp) {
+                perror("FAILED TO REALLOCATE THE BUFFER!");
+                return EXIT_FAILURE;
+            }
+            binary_file.image_entries = temp;
+            return EXIT_SUCCESS;
+        }
+        case SOUND:{
+            break;
+        }
+        case OTHER: {
+            Entry* temp = realloc(binary_file.other_entries, size);
+            if (!temp) {
+                perror("FAILED TO REALLOCATE THE BUFFER!");
+                return EXIT_FAILURE;
+            }
+            binary_file.other_entries = temp;
+            return EXIT_SUCCESS;
+        }
     }
 
-#define INDEX binary_file.header.entry_count
-
-    binary_file.entries = realloc(binary_file.entries, sizeof(Entry) * (binary_file.header.entry_count + 1));
-
-    binary_file.entries[INDEX].hash = _fnv1a_hash(name);
-    binary_file.entries[INDEX].size = size;
-    binary_file.entries[INDEX].data = malloc(size);
-    memcpy(binary_file.entries[INDEX].data, data, size);
-
-    binary_file.header.entry_count++;
     return EXIT_SUCCESS;
 }
 
@@ -172,13 +302,13 @@ int main(int argv, char *argc[]) {
         float x;
         float y;
     } Position;
-    Position pos = {2.4f, 1.2f};
+    const Position pos = {2.4f, 1.2f};
     packer_write_header("SPAW", 0, 1);
-    float scale = 1.0f;
-    float rotation = 45.0f;
-    packer_add_entry("position", &pos, sizeof(pos));
-    packer_add_entry("scale", &scale, sizeof(scale));
-    packer_add_entry("rotation", &rotation, sizeof(rotation));
+    const float scale = 1.0f;
+    const float rotation = 45.0f;
+    packer_add_entry("position", NULL, &pos, sizeof(pos));
+    packer_add_entry("scale", NULL, &scale, sizeof(scale));
+    packer_add_entry("rotation", NULL, &rotation, sizeof(rotation));
     packer_shutdown();
 
     return 0;

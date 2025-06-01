@@ -29,7 +29,6 @@ namespace Spyen
 
     struct RendererData
 
-
     {
         static constexpr uint32_t MaxQuads = 10000;
         static constexpr uint32_t MaxVertices = MaxQuads * 4;

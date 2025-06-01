@@ -69,3 +69,4 @@ add_executable(Spyen_Archiver "SpyenAssetArchiver/src/main.c"
         SpyenAssetArchiver/include/Archiver.h)
 
 target_include_directories(Spyen_Archiver PRIVATE "SpyenAssetArchiver/include")
+target_link_libraries(Spyen_Archiver m)

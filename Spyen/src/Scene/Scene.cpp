@@ -49,7 +49,7 @@ namespace Spyen {
         for (auto [entity, target, transform] : view.each()) {
             if (target.Texture == nullptr) {
                 Renderer::SubmitQuad(transform.GetTransform(), target.Color);
-                SPY_CORE_INFO("Rendering Colored entity");
+                //SPY_CORE_INFO("Rendering Colored entity");
             }else {
                 Renderer::SubmitQuad(transform.GetTransform(), target.Texture);
                 //SPY_CORE_INFO("Rendering textured entity");
