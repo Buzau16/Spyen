@@ -65,8 +65,8 @@ target_link_libraries(Sandbox PRIVATE Spyen)
 project(Archiver)
 set(CMAKE_C_STANDARD 99)
 
-add_executable(Spyen_Archiver "SpyenAssetArchiver/src/main.c"
-        SpyenAssetArchiver/include/Archiver.h)
+add_executable(arcbyte "ArcByte/src/main.c"
+        ArcByte/include/Archiver.h)
 
-target_include_directories(Spyen_Archiver PRIVATE "SpyenAssetArchiver/include")
-target_link_libraries(Spyen_Archiver m)
+target_include_directories(arcbyte PRIVATE "ArcByte/include")
+target_link_libraries(arcbyte m)

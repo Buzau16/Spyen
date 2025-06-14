@@ -234,39 +234,39 @@ build Sandbox: CXX_EXECUTABLE_LINKER__Sandbox_Debug CMakeFiles/Sandbox.dir/SandB
   TARGET_PDB = Sandbox.dbg
 
 # =============================================================================
-# Object build statements for EXECUTABLE target Spyen_Archiver
+# Object build statements for EXECUTABLE target arcbyte
 
 
 #############################################
-# Order-only phony target for Spyen_Archiver
+# Order-only phony target for arcbyte
 
-build cmake_object_order_depends_target_Spyen_Archiver: phony || .
+build cmake_object_order_depends_target_arcbyte: phony || .
 
-build CMakeFiles/Spyen_Archiver.dir/SpyenAssetArchiver/src/main.c.o: C_COMPILER__Spyen_Archiver_unscanned_Debug /home/buzauu/CLionProjects/Spyen/SpyenAssetArchiver/src/main.c || cmake_object_order_depends_target_Spyen_Archiver
-  DEP_FILE = CMakeFiles/Spyen_Archiver.dir/SpyenAssetArchiver/src/main.c.o.d
+build CMakeFiles/arcbyte.dir/ArcByte/src/main.c.o: C_COMPILER__arcbyte_unscanned_Debug /home/buzauu/CLionProjects/Spyen/ArcByte/src/main.c || cmake_object_order_depends_target_arcbyte
+  DEP_FILE = CMakeFiles/arcbyte.dir/ArcByte/src/main.c.o.d
   FLAGS = -g -std=gnu99 -fcolor-diagnostics
-  INCLUDES = -I/home/buzauu/CLionProjects/Spyen/Spyen/include -I/home/buzauu/CLionProjects/Spyen/Spyen/src -I/home/buzauu/CLionProjects/Spyen/Spyen/vendor/glad/include -I/home/buzauu/CLionProjects/Spyen/Spyen/vendor/glfw/include -I/home/buzauu/CLionProjects/Spyen/Spyen/vendor/spdlog/include -I/home/buzauu/CLionProjects/Spyen/SpyenAssetArchiver/include
-  OBJECT_DIR = CMakeFiles/Spyen_Archiver.dir
-  OBJECT_FILE_DIR = CMakeFiles/Spyen_Archiver.dir/SpyenAssetArchiver/src
+  INCLUDES = -I/home/buzauu/CLionProjects/Spyen/Spyen/include -I/home/buzauu/CLionProjects/Spyen/Spyen/src -I/home/buzauu/CLionProjects/Spyen/Spyen/vendor/glad/include -I/home/buzauu/CLionProjects/Spyen/Spyen/vendor/glfw/include -I/home/buzauu/CLionProjects/Spyen/Spyen/vendor/spdlog/include -I/home/buzauu/CLionProjects/Spyen/ArcByte/include
+  OBJECT_DIR = CMakeFiles/arcbyte.dir
+  OBJECT_FILE_DIR = CMakeFiles/arcbyte.dir/ArcByte/src
 
 
 # =============================================================================
-# Link build statements for EXECUTABLE target Spyen_Archiver
+# Link build statements for EXECUTABLE target arcbyte
 
 
 #############################################
-# Link the executable Spyen_Archiver
+# Link the executable arcbyte
 
-build Spyen_Archiver: C_EXECUTABLE_LINKER__Spyen_Archiver_Debug CMakeFiles/Spyen_Archiver.dir/SpyenAssetArchiver/src/main.c.o
-  DEP_FILE = CMakeFiles/Spyen_Archiver.dir/link.d
+build arcbyte: C_EXECUTABLE_LINKER__arcbyte_Debug CMakeFiles/arcbyte.dir/ArcByte/src/main.c.o
+  DEP_FILE = CMakeFiles/arcbyte.dir/link.d
   FLAGS = -g
-  LINK_FLAGS = -Xlinker --dependency-file=CMakeFiles/Spyen_Archiver.dir/link.d
+  LINK_FLAGS = -Xlinker --dependency-file=CMakeFiles/arcbyte.dir/link.d
   LINK_LIBRARIES = -lm
-  OBJECT_DIR = CMakeFiles/Spyen_Archiver.dir
+  OBJECT_DIR = CMakeFiles/arcbyte.dir
   POST_BUILD = :
   PRE_LINK = :
-  TARGET_FILE = Spyen_Archiver
-  TARGET_PDB = Spyen_Archiver.dbg
+  TARGET_FILE = arcbyte
+  TARGET_PDB = arcbyte.dbg
 
 
 #############################################
@@ -304,7 +304,7 @@ build Spyen: phony libSpyen.so
 #############################################
 # Folder: /home/buzauu/CLionProjects/Spyen/cmake-build-debug
 
-build all: phony libSpyen.so Sandbox Spyen_Archiver
+build all: phony libSpyen.so Sandbox arcbyte
 
 # =============================================================================
 # Built-in targets

@@ -33,6 +33,7 @@ typedef struct Entry Entry;
 typedef struct ImageEntry ImageEntry;
 typedef struct SoundEntry SoundEntry; //TODO: to be implemented!
 typedef struct File File;
+typedef struct FileData FileData;
 
 bool packer_init(const char* filename);
 bool packer_shutdown();
@@ -48,8 +49,11 @@ void _write_u8_le(uint8_t val);
 
 // Use only for 4 characters
 uint32_t _char_to_u32_le(const char* str);
+uint8_t _char_to_u8_le(char str);
 
 // From https://www.programmingalgorithms.com/algorithm/fnv-hash/c/
 uint32_t _fnv1a_hash(const char* str);
+
+char* _truncate_filepath(const char* filepath);
 
 #endif

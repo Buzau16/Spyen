@@ -12,6 +12,13 @@ typedef enum DataTypes {
     OTHER
 } DataType;
 
+struct FileData {
+    char* output_name;
+    char sig[4];
+    uint8_t major;
+    uint8_t minor;
+};
+
 struct Header {
     uint32_t signature;
     uint8_t version_major;
@@ -39,14 +46,12 @@ struct ImageEntry {
 #define OTHER_ENTRY_NO_PTR_SIZE 12
 #define IMAGE_ENTRY_NO_PTR_SIZE 20
 
-#define INDEX binary_file.header.entry_count
-
 struct File {
-    DataType type;
     Header header;
     Entry* other_entries;
     ImageEntry* image_entries;
     uint32_t current_data_offset;
+    DataType type;
 };
 
 FILE* output_file;
@@ -57,6 +62,7 @@ bool packer_init(const char *filename) {
         printf("File already opened!\n");
         return EXIT_FAILURE;
     }
+    printf("Initializing arcbyte\n");
 
     output_file = fopen(filename, "wb");
 
@@ -76,7 +82,10 @@ bool packer_shutdown() {
         return EXIT_FAILURE;
     }
 
+    printf("Shutting down\n");
+
     // write the header entry count
+    fseek(output_file, 6, SEEK_SET);
     _write_u16_le(binary_file.header.entry_count);
 
 
@@ -102,9 +111,10 @@ bool packer_shutdown() {
                 free(binary_file.image_entries[i].data);
             }
 
-            free(binary_file.other_entries);
+            free(binary_file.image_entries);
             fclose(output_file);
 
+            printf("Shutdown complete! Enjoy your file!\n");
             return EXIT_SUCCESS;
         }
         case SOUND: {
@@ -130,9 +140,13 @@ bool packer_shutdown() {
             free(binary_file.other_entries);
             fclose(output_file);
 
+            printf("Shutdown complete! Enjoy your file!\n");
             return EXIT_SUCCESS;
         }
     }
+
+
+    printf("Failed to shutdown!\n");
     return EXIT_FAILURE;
 }
 void packer_set_mode(const uint8_t mode) {
@@ -143,22 +157,26 @@ bool packer_write_header(const char *signature, uint8_t version_major, uint8_t v
         printf("Cannot write to an unopened file! %s\n", __FUNCTION__);
         return EXIT_FAILURE;
     }
+    printf("Writing the header\n");
 
     _write_u32_le(_char_to_u32_le(signature));
     _write_u8_le(version_major);
     _write_u8_le(version_minor);
+    _write_u16_le(0);
 
     return EXIT_SUCCESS;
 }
 //
 bool packer_add_entry(const char *name, const char *filepath, const void *data, const size_t size) {
+    printf("Adding entry: %s\n", name);
+    uint32_t INDEX = binary_file.header.entry_count;
     switch (binary_file.type) {
         case NONE: {
             printf("No type set! %s\n", __FUNCTION__);
             return EXIT_FAILURE;
         }
         case TEXTURE: {
-            _resize_entry_buffer(sizeof(Header) + (IMAGE_ENTRY_NO_PTR_SIZE * (binary_file.header.entry_count + 1)));
+            _resize_entry_buffer(sizeof(ImageEntry) * (binary_file.header.entry_count + 1));
             int x, y, c;
             unsigned char *image_data = stbi_load(filepath, &x, &y, &c, 0);
             if (!image_data) {
@@ -192,7 +210,7 @@ bool packer_add_entry(const char *name, const char *filepath, const void *data, 
                 printf("Please provide the data!\n");
                 return EXIT_FAILURE;
             }
-            _resize_entry_buffer(sizeof(Header) + (OTHER_ENTRY_NO_PTR_SIZE * (binary_file.header.entry_count + 1)));
+            _resize_entry_buffer(sizeof(Entry) * (binary_file.header.entry_count + 1));
 
             binary_file.other_entries[INDEX].hash = _fnv1a_hash(name);
             binary_file.other_entries[INDEX].size = size;
@@ -205,7 +223,7 @@ bool packer_add_entry(const char *name, const char *filepath, const void *data, 
     }
     return EXIT_FAILURE;
 }
-bool _resize_entry_buffer(size_t size) {
+bool _resize_entry_buffer(const size_t size) {
     switch (binary_file.type) {
         case NONE: {
             printf("DATA TYPE IS NONE!!\n");
@@ -281,35 +299,121 @@ uint32_t _char_to_u32_le(const char *str) {
 
     uint32_t result = 0;
     for (uint32_t i = 0; i < 4; i++) {
-        result |= (uint32_t)(unsigned char)str[i] << 8 * i;
+        result |= (uint32_t) (unsigned char) str[i] << 8 * i;
     }
     return result;
+}
+uint8_t _char_to_u8_le(const char str) {
+    return (unsigned char) str;
 }
 
 uint32_t _fnv1a_hash(const char *str) {
     const uint32_t FNV_PRIME = 0x1000193;
     uint32_t result = 0x811c9dc5;
     for (; *str; str++) {
-        result ^= (uint8_t)(*str);
+        result ^= (uint8_t) (*str);
         result *= FNV_PRIME;
     }
     return result;
 }
 
-int main(int argv, char *argc[]) {
-    packer_init("spak");
-    typedef struct Position {
-        float x;
-        float y;
-    } Position;
-    const Position pos = {2.4f, 1.2f};
-    packer_write_header("SPAW", 0, 1);
-    const float scale = 1.0f;
-    const float rotation = 45.0f;
-    packer_add_entry("position", NULL, &pos, sizeof(pos));
-    packer_add_entry("scale", NULL, &scale, sizeof(scale));
-    packer_add_entry("rotation", NULL, &rotation, sizeof(rotation));
-    packer_shutdown();
+char* _truncate_filepath(const char* filepath) {
+    const char* last_slash = strrchr(filepath, '/');
+    const char* last_backslash = strrchr(filepath, '\\');
 
-    return 0;
+    const char* filename_start = last_slash > last_backslash ? last_slash : last_backslash;
+    if (filename_start)
+        filename_start++;
+    else
+        filename_start = filepath;
+
+    const char* dot = strrchr(filename_start, '.');
+
+    size_t len = dot ? (size_t)(dot - filename_start) : strlen(filename_start);
+    char* result = (char*)malloc(len + 1);
+    if (!result) return NULL; // possible vulnerability
+
+    strncpy(result, filename_start, len);
+    result[len] = '\0';
+
+    return result;
+}
+
+/*
+ * Command example
+ * arcbyte -f(1 file) -i(image) example1.png
+ * arcbyte -fs(files) -i(image) example1.png example2.png etc.
+ * arcbyte -d(directory) -i assets/textures/...
+ * -fn=name(filename)
+ */
+
+// argc
+int main(int argc, char *argv[]) {
+    if (argc < 4) {
+        printf("Usage: %s [-n=] [-S=] [-M=] [-m=] [-f|-d] [-i|-s] [files/directory...]\n", argv[0]);
+        printf("Options:\n");
+        printf("  -n=  Output filename\n");
+        printf("  -s=  Signature (must be 4 characters!)\n");
+        printf("  -M=  File's version major\n");
+        printf("  -m=  File's version minor\n");
+        printf("  -f   Process files\n");
+        printf("  -d   Process a directory\n");
+        printf("  -i   Image mode\n");
+        printf("  -s   Sound mode\n");
+        return EXIT_FAILURE;
+    }
+
+    FileData fd = {
+        .output_name = "asp.aby",
+        .major = 0,
+        .minor = 1,
+        .sig = "ARBY"
+    };
+
+    bool process_files = false;
+    bool process_directory = false;
+
+    for (int i = 1; i < argc; i++) {
+        if (strncmp(argv[i], "-n=", 3) == 0) {
+            size_t len = strlen(argv[i] + 3) + strlen(".aby") + 1;
+            char *output_name = malloc(len);
+            if (!output_name) {
+                perror("malloc");
+                return EXIT_FAILURE;
+            }
+            strcpy(output_name, argv[i] + 3);
+            strcat(output_name, ".aby");
+            fd.output_name = output_name;
+        } else if (strncmp(argv[i], "-S=", 3) == 0) {
+            strncpy(fd.sig, argv[i] + 3, 4);
+        } else if (strncmp(argv[i], "-M=", 3) == 0) {
+            fd.major = _char_to_u8_le(argv[i][3]);
+        } else if (strncmp(argv[i], "-m=", 3) == 0) {
+            fd.minor = _char_to_u8_le(argv[i][3]);
+        } else if (strcmp(argv[i], "-i") == 0) {
+            packer_set_mode(TEXTURE);
+        } else if (strcmp(argv[i], "-s") == 0) {
+            packer_set_mode(SOUND);
+        } else if (strcmp(argv[i], "-f") == 0) {
+            process_files = true;
+        } else if (strcmp(argv[i], "-d") == 0) {
+            process_directory = true;
+        }
+    }
+
+    packer_init(fd.output_name);
+    packer_write_header(fd.sig, fd.major, fd.minor);
+
+    for (int i = 1; i < argc; i++) {
+        if (argv[i][0] != '-') {
+            if (process_files) {
+                packer_add_entry(_truncate_filepath(argv[i]), argv[i], NULL, 0);
+            } else if (process_directory) {
+                // TODO: implement!
+            }
+        }
+    }
+
+    packer_shutdown();
+    return EXIT_SUCCESS;
 }
