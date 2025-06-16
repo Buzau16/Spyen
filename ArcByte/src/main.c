@@ -353,7 +353,7 @@ int main(int argc, char *argv[]) {
         printf("Usage: %s [-n=] [-S=] [-M=] [-m=] [-f|-d] [-i|-s] [files/directory...]\n", argv[0]);
         printf("Options:\n");
         printf("  -n=  Output filename\n");
-        printf("  -s=  Signature (must be 4 characters!)\n");
+        printf("  -S=  Signature (must be 4 characters!)\n");
         printf("  -M=  File's version major\n");
         printf("  -m=  File's version minor\n");
         printf("  -f   Process files\n");
