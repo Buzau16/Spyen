@@ -1,0 +1,78 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"jsonFile" : "directory-.-Debug-f5ebdc15457944623624.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.16"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2
+					]
+				}
+			],
+			"name" : "Debug",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "Archiver",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "Sandbox::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Sandbox-Debug-49bd9a0dc10db3127dad.json",
+					"name" : "Sandbox",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "Spyen::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Spyen-Debug-5050f09a5a99771c97c0.json",
+					"name" : "Spyen",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "arcbyte::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-arcbyte-Debug-96ff069f7c6792ac7d6d.json",
+					"name" : "arcbyte",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "/home/buzauu/CLionProjects/Spyen/cmake-build-debug",
+		"source" : "/home/buzauu/CLionProjects/Spyen"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 7
+	}
+}

@@ -1,4 +1,5 @@
-/home/buzauu/.local/share/JetBrains/Toolbox/apps/clion/bin/cmake/linux/x64/bin/cmake -DCMAKE_BUILD_TYPE=Debug -DCMAKE_MAKE_PROGRAM=/home/buzauu/.local/share/JetBrains/Toolbox/apps/clion/bin/ninja/linux/x64/ninja -DCMAKE_C_COMPILER=/usr/bin/clang -DCMAKE_CXX_COMPILER=/usr/bin/clang++ -G Ninja -S /home/buzauu/CLionProjects/Spyen -B /home/buzauu/CLionProjects/Spyen/cmake-build-debug
--- Configuring done (0.0s)
+/home/buzauu/.local/share/JetBrains/Toolbox/apps/clion/bin/cmake/linux/x64/bin/cmake -DCMAKE_BUILD_TYPE=Debug -DCMAKE_MAKE_PROGRAM=/home/buzauu/.local/share/JetBrains/Toolbox/apps/clion/bin/ninja/linux/x64/ninja -DCMAKE_C_COMPILER=clang -DCMAKE_CXX_COMPILER=clang++ -G Ninja -S /home/buzauu/CLionProjects/Spyen -B /home/buzauu/CLionProjects/Spyen/cmake-build-debug
+-- Checking for one of the modules 'glfw3'
+-- Configuring done (0.1s)
 -- Generating done (0.0s)
 -- Build files have been written to: /home/buzauu/CLionProjects/Spyen/cmake-build-debug

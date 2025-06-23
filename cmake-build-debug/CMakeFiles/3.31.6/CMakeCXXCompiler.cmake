@@ -1,7 +1,7 @@
 set(CMAKE_CXX_COMPILER "/usr/bin/clang++")
 set(CMAKE_CXX_COMPILER_ARG1 "")
 set(CMAKE_CXX_COMPILER_ID "Clang")
-set(CMAKE_CXX_COMPILER_VERSION "19.1.7")
+set(CMAKE_CXX_COMPILER_VERSION "20.1.6")
 set(CMAKE_CXX_COMPILER_VERSION_INTERNAL "")
 set(CMAKE_CXX_COMPILER_WRAPPER "")
 set(CMAKE_CXX_STANDARD_COMPUTED_DEFAULT "17")
@@ -87,11 +87,11 @@ endif()
 
 
 
-set(CMAKE_CXX_IMPLICIT_INCLUDE_DIRECTORIES "/usr/include/c++/15.1.1;/usr/include/c++/15.1.1/x86_64-pc-linux-gnu;/usr/include/c++/15.1.1/backward;/usr/lib/clang/19/include;/usr/local/include;/usr/include")
+set(CMAKE_CXX_IMPLICIT_INCLUDE_DIRECTORIES "/usr/include/c++/15.1.1;/usr/include/c++/15.1.1/x86_64-pc-linux-gnu;/usr/include/c++/15.1.1/backward;/usr/lib/clang/20/include;/usr/local/include;/usr/include")
 set(CMAKE_CXX_IMPLICIT_LINK_LIBRARIES "stdc++;m;gcc_s;gcc;c;gcc_s;gcc")
 set(CMAKE_CXX_IMPLICIT_LINK_DIRECTORIES "/usr/lib64/gcc/x86_64-pc-linux-gnu/15.1.1;/usr/lib64;/lib64;/lib;/usr/lib")
 set(CMAKE_CXX_IMPLICIT_LINK_FRAMEWORK_DIRECTORIES "")
-set(CMAKE_CXX_COMPILER_CLANG_RESOURCE_DIR "/usr/lib/clang/19")
+set(CMAKE_CXX_COMPILER_CLANG_RESOURCE_DIR "/usr/lib/clang/20")
 
 set(CMAKE_CXX_COMPILER_IMPORT_STD "")
 ### Imported target for C++23 standard library

@@ -29,20 +29,18 @@ SOFTWARE.
  */
 
 typedef struct Header Header;
-typedef struct Entry Entry;
 typedef struct ImageEntry ImageEntry;
 typedef struct SoundEntry SoundEntry; //TODO: to be implemented!
-typedef struct File File;
-typedef struct FileData FileData;
+typedef struct BinaryContext BinaryContext;
 
-bool packer_init(const char* filename);
-bool packer_shutdown();
-void packer_set_mode(uint8_t mode);
-bool packer_write_header(const char* signature, uint8_t version_major, uint8_t version_minor);
+bool packer_init(BinaryContext** context);
+bool packer_open_file(char* filename);
+bool packer_shutdown(BinaryContext** context);
+void packer_set_mode(BinaryContext* context, uint8_t mode);
+bool packer_write_header(BinaryContext* context, const char* signature, uint8_t version_major, uint8_t version_minor, uint16_t entry_count);
 // filepath is used only for texture/sound datatypes!
-bool packer_add_entry(const char* name, const char* filepath, const void * data, size_t size);
+bool packer_write_entry(BinaryContext* context, const char* name, const char* filepath);
 
-bool _resize_entry_buffer(size_t size);
 void _write_u32_le(uint32_t val);
 void _write_u16_le(uint16_t val);
 void _write_u8_le(uint8_t val);
