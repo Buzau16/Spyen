@@ -66,7 +66,8 @@ project(Archiver)
 set(CMAKE_C_STANDARD 99)
 
 add_executable(arcbyte "ArcByte/src/main.c"
-        ArcByte/include/Archiver.h)
+        ArcByte/include/Archiver.h
+        ArcByte/include/Reader.h)
 
 target_include_directories(arcbyte PRIVATE "ArcByte/include")
 target_link_libraries(arcbyte m)

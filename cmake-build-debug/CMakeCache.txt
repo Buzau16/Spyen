@@ -239,7 +239,7 @@ OPENGL_GLES2_INCLUDE_DIR:PATH=/usr/include
 OPENGL_GLES3_INCLUDE_DIR:PATH=/usr/include
 
 //Path to a file.
-OPENGL_GLU_INCLUDE_DIR:PATH=OPENGL_GLU_INCLUDE_DIR-NOTFOUND
+OPENGL_GLU_INCLUDE_DIR:PATH=/usr/include
 
 //Path to a file.
 OPENGL_GLX_INCLUDE_DIR:PATH=/usr/include
@@ -257,7 +257,7 @@ OPENGL_gles2_LIBRARY:FILEPATH=/usr/lib/libGLESv2.so
 OPENGL_gles3_LIBRARY:FILEPATH=/usr/lib/libGLESv2.so
 
 //Path to a library.
-OPENGL_glu_LIBRARY:FILEPATH=OPENGL_glu_LIBRARY-NOTFOUND
+OPENGL_glu_LIBRARY:FILEPATH=/usr/lib/libGLU.so
 
 //Path to a library.
 OPENGL_glx_LIBRARY:FILEPATH=/usr/lib/libGLX.so
@@ -450,7 +450,7 @@ CMAKE_VERBOSE_MAKEFILE-ADVANCED:INTERNAL=1
 //Details about finding OpenGL
 FIND_PACKAGE_MESSAGE_DETAILS_OpenGL:INTERNAL=[/usr/lib/libOpenGL.so][/usr/lib/libGLX.so][/usr/include][c ][v()]
 //Details about finding PkgConfig
-FIND_PACKAGE_MESSAGE_DETAILS_PkgConfig:INTERNAL=[/usr/bin/pkg-config][v2.5.0()]
+FIND_PACKAGE_MESSAGE_DETAILS_PkgConfig:INTERNAL=[/usr/bin/pkg-config][v2.5.1()]
 GLFW_CFLAGS:INTERNAL=-I/usr/include
 GLFW_CFLAGS_I:INTERNAL=
 GLFW_CFLAGS_OTHER:INTERNAL=

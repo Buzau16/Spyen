@@ -33,11 +33,12 @@ typedef struct ImageEntry ImageEntry;
 typedef struct SoundEntry SoundEntry; //TODO: to be implemented!
 typedef struct BinaryContext BinaryContext;
 
+// TODO: Refactor!
 bool packer_init(BinaryContext** context);
 bool packer_open_file(char* filename);
 bool packer_shutdown(BinaryContext** context);
 void packer_set_mode(BinaryContext* context, uint8_t mode);
-bool packer_write_header(BinaryContext* context, const char* signature, uint8_t version_major, uint8_t version_minor, uint16_t entry_count);
+bool packer_write_header(BinaryContext* context, const char* signature, uint8_t version_major, uint8_t version_minor, uint8_t entry_count, uint8_t type);
 // filepath is used only for texture/sound datatypes!
 bool packer_write_entry(BinaryContext* context, const char* name, const char* filepath);
 

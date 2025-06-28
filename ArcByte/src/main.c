@@ -25,7 +25,8 @@ struct Header {
     uint32_t signature;
     uint8_t version_major;
     uint8_t version_minor;
-    uint16_t entry_count;
+    uint8_t entry_count;
+    uint8_t entry_type;
 };
 
 struct ImageEntry {
@@ -87,7 +88,7 @@ bool packer_shutdown(BinaryContext** context) {
 void packer_set_mode(BinaryContext* context, const uint8_t mode) {
     context->type = mode;
 }
-bool packer_write_header(BinaryContext* context, const char *signature, uint8_t version_major, uint8_t version_minor, uint16_t entry_count) {
+bool packer_write_header(BinaryContext* context, const char *signature, uint8_t version_major, uint8_t version_minor, uint8_t entry_count, uint8_t type) {
     if (!output_file) {
         printf("Cannot write to an unopened file! %s\n", __FUNCTION__);
         return EXIT_FAILURE;
@@ -97,9 +98,10 @@ bool packer_write_header(BinaryContext* context, const char *signature, uint8_t 
     _write_u32_le(_char_to_u32_le(signature));
     _write_u8_le(version_major);
     _write_u8_le(version_minor);
-    _write_u16_le(entry_count);
+    _write_u8_le(entry_count);
+    _write_u8_le(type);
 
-    uint32_t tpof;
+    uint32_t tpof = 0;
     if (context->type == TEXTURE) {
         tpof = entry_count * sizeof(ImageEntry);
     }else if (context->type == SOUND) {
@@ -135,6 +137,7 @@ bool packer_write_entry(BinaryContext* context, const char *name, const char *fi
             _write_u32_le(c);
 
             long location = ftell(output_file);
+
             // Write the data
             fseek(output_file, context->data_offset, SEEK_SET);
             fwrite(image_data, x * y * c, 1, output_file);
@@ -301,7 +304,8 @@ int main(int argc, char *argv[]) {
     }
 
     packer_open_file(context->output_name);
-    packer_write_header(context, context->sig, context->major, context->minor, context->entry_count);
+    packer_write_header(context, context->sig, context->major, context->minor, context->entry_count, context->type);
+
 
     for (int i = 1; i < argc; i++) {
         if (argv[i][0] != '-') {
