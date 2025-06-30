@@ -3,27 +3,53 @@
 #include <stdint.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 #include "stb_image.h"
 
 typedef struct FileContext FileContext;
+// Hashmap is a little too much for this implementation
+typedef struct ABHashmap ABHashmap;
+typedef struct ABHashEntry ABHashEntry;
+
 FileContext* reader_init(const char* filepath);
-unsigned char* reader_get_entry(FileContext* ctx, const char* name);
+void reader_shutdown(const FileContext * ctx);
+unsigned char* reader_get_entry(const FileContext * ctx, const char* name);
+ABHashmap* create_hashmap(uint8_t entry_count);
+ABHashEntry get_entry(uint32_t hash);
+void delete_hashmap(ABHashmap* vector);
+
+
 
 // From https://www.programmingalgorithms.com/algorithm/fnv-hash/c/
 uint32_t _fnv1a_hash(const char* str);
+
+void* _arcbyte_malloc(size_t size);
+void _arcbyte_free(void* ptr);
 
 #define ARCBYTE_READER_IMPLEMENTATION
 #ifdef ARCBYTE_READER_IMPLEMENTATION
 
 struct FileContext {
     FILE* input_file;
-    uint8_t entry_count;
+    ABHashmap* hashmap;
     uint8_t data_type;
 };
 
+struct ABHashEntry {
+    uint32_t hash;
+    uint32_t offset;
+    uint32_t size;
+};
+
+struct ABHashmap {
+    uint8_t entry_count;
+    // Type for later
+    ABHashEntry* entries;
+};
+
 inline FileContext *reader_init(const char *filepath) {
-    FileContext *ctx = malloc(sizeof(FileContext));
+    FileContext *ctx = _arcbyte_malloc(sizeof(FileContext));
 
     ctx->input_file = fopen(filepath, "rb");
     if (!ctx->input_file) {
@@ -33,35 +59,39 @@ inline FileContext *reader_init(const char *filepath) {
     }
 
     fseek(ctx->input_file, 6, SEEK_SET);
-    fread(&ctx->entry_count, sizeof(uint8_t), 1, ctx->input_file);
+    uint8_t count = 0;
+    fread(&count, sizeof(uint8_t), 1, ctx->input_file);
     fread(&ctx->data_type, sizeof(uint8_t), 1, ctx->input_file);
+
+    // Hashmap
+    ctx->hashmap = create_hashmap(count);
+    for (uint32_t i = 0; i < ctx->hashmap->entry_count; i++) {
+        fread(&ctx->hashmap->entries[i].hash, sizeof(uint32_t), 1, ctx->input_file);
+        fread(&ctx->hashmap->entries[i].offset, sizeof(uint32_t), 1, ctx->input_file);
+        fread(&ctx->hashmap->entries[i].size, sizeof(uint32_t), 1, ctx->input_file);
+        fseek(ctx->input_file, 12, SEEK_CUR);
+    }
 
     return ctx;
 }
-inline unsigned char *reader_get_entry(FileContext *ctx, const char *name) {
+inline void reader_shutdown(FileContext *ctx) {
+    fclose(ctx->input_file);
+    delete_hashmap(ctx->hashmap);
+    _arcbyte_free(ctx);
+}
+inline unsigned char *reader_get_entry(const FileContext *ctx, const char *name) {
     // image entry is 4 * 6 bytes!
-
-    fseek(ctx->input_file, 8, SEEK_SET);
-
     switch (ctx->data_type) {
         case 1: /*Images*/ {
             const uint32_t hash = _fnv1a_hash(name);
-            uint32_t read_hash = 0;
-            for (uint32_t i = ftell(ctx->input_file); i < 8 + 24 * ctx->entry_count; i+=24) {
-                fread(&read_hash, sizeof(uint32_t), 1, ctx->input_file);
-                if (read_hash == hash) {
+            for (uint32_t i = 0; i < ctx->hashmap->entry_count; i++) {
+                const ABHashEntry *entry = &ctx->hashmap->entries[i];
+                if (hash == entry->hash) {
+                    // Read the entry from the disk
+                    unsigned char *image_data = malloc(entry->size);
 
-                    // read the offset and the size
-                    uint32_t offset = 0;
-                    uint32_t size = 0;
-                    fread(&offset, sizeof(uint32_t), 1, ctx->input_file);
-                    fread(&size, sizeof(uint32_t), 1, ctx->input_file);
-
-                    unsigned char *image_data = malloc(size);
-
-                    fseek(ctx->input_file, offset, SEEK_SET);
-                    fread(image_data, size, 1, ctx->input_file);
-
+                    fseek(ctx->input_file, entry->offset, SEEK_SET);
+                    fread(image_data, entry->size, 1, ctx->input_file);
 
                     return image_data;
                 }
@@ -71,6 +101,18 @@ inline unsigned char *reader_get_entry(FileContext *ctx, const char *name) {
         default:
             break;
     }
+    return NULL;
+}
+inline ABHashmap *create_hashmap(const uint8_t entry_count) {
+    ABHashmap *vect = _arcbyte_malloc(sizeof(ABHashmap));
+    vect->entries = _arcbyte_malloc(sizeof(ABHashEntry) * entry_count);
+    vect->entry_count = entry_count;
+    memset(vect->entries, 0, sizeof(ABHashEntry) * entry_count);
+    return vect;
+}
+inline void delete_hashmap(ABHashmap *vector) {
+    _arcbyte_free(vector->entries);
+    _arcbyte_free(vector);
 }
 
 inline uint32_t _fnv1a_hash(const char *str) {
@@ -81,6 +123,18 @@ inline uint32_t _fnv1a_hash(const char *str) {
         result *= FNV_PRIME;
     }
     return result;
+}
+
+inline void* _arcbyte_malloc(const size_t size) {
+    void* ptr = malloc(size);
+    if (!ptr) {
+        perror("Failed to allocate memory!!!\n");
+    }
+    return ptr;
+}
+
+inline void _arcbyte_free(void* ptr) {
+    free(ptr);
 }
 
 #endif
