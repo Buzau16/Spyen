@@ -16,6 +16,7 @@ namespace Spyen {
         Texture() = default;
         Texture(const std::filesystem::path& path);
         Texture(const TextureSpecs& specs);
+        Texture(const unsigned char *data, uint32_t width, uint32_t height, uint8_t channels);
 
         void Bind(uint32_t slot) const;
         void Unbind(uint32_t slot) const;
@@ -27,6 +28,8 @@ namespace Spyen {
 
         static std::shared_ptr<Texture> Create(const std::filesystem::path& path);
         static std::shared_ptr<Texture> Create(const TextureSpecs& specs);
+        // for prototyping
+        static std::shared_ptr<Texture> Create(const unsigned char *data, uint32_t width, uint32_t height, uint8_t channels);
 
         bool operator==(const Texture& other) const
         {

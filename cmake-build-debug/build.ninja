@@ -53,7 +53,7 @@ build CMakeFiles/Spyen.dir/Spyen/src/Core/Engine.cpp.o: CXX_COMPILER__Spyen_unsc
   DEFINES = -DSPYEN_BUILD_DLL -DSP_DEBUG -DSpyen_EXPORTS
   DEP_FILE = CMakeFiles/Spyen.dir/Spyen/src/Core/Engine.cpp.o.d
   FLAGS = -g -std=gnu++20 -fPIC -fcolor-diagnostics
-  INCLUDES = -I/home/buzauu/CLionProjects/Spyen/Spyen/include -I/home/buzauu/CLionProjects/Spyen/Spyen/src -I/home/buzauu/CLionProjects/Spyen/Spyen/vendor/glad/include -I/home/buzauu/CLionProjects/Spyen/Spyen/vendor/glfw/include -I/home/buzauu/CLionProjects/Spyen/Spyen/vendor/spdlog/include
+  INCLUDES = -I/home/buzauu/CLionProjects/Spyen/Spyen/include -I/home/buzauu/CLionProjects/Spyen/Spyen/src -I/home/buzauu/CLionProjects/Spyen/Spyen/vendor/glad/include -I/home/buzauu/CLionProjects/Spyen/Spyen/vendor/glfw/include -I/home/buzauu/CLionProjects/Spyen/Spyen/vendor/spdlog/include -I/home/buzauu/CLionProjects/Spyen/Spyen/vendor/ArcByte/include
   OBJECT_DIR = CMakeFiles/Spyen.dir
   OBJECT_FILE_DIR = CMakeFiles/Spyen.dir/Spyen/src/Core
 
@@ -61,7 +61,7 @@ build CMakeFiles/Spyen.dir/Spyen/src/Core/Log.cpp.o: CXX_COMPILER__Spyen_unscann
   DEFINES = -DSPYEN_BUILD_DLL -DSP_DEBUG -DSpyen_EXPORTS
   DEP_FILE = CMakeFiles/Spyen.dir/Spyen/src/Core/Log.cpp.o.d
   FLAGS = -g -std=gnu++20 -fPIC -fcolor-diagnostics
-  INCLUDES = -I/home/buzauu/CLionProjects/Spyen/Spyen/include -I/home/buzauu/CLionProjects/Spyen/Spyen/src -I/home/buzauu/CLionProjects/Spyen/Spyen/vendor/glad/include -I/home/buzauu/CLionProjects/Spyen/Spyen/vendor/glfw/include -I/home/buzauu/CLionProjects/Spyen/Spyen/vendor/spdlog/include
+  INCLUDES = -I/home/buzauu/CLionProjects/Spyen/Spyen/include -I/home/buzauu/CLionProjects/Spyen/Spyen/src -I/home/buzauu/CLionProjects/Spyen/Spyen/vendor/glad/include -I/home/buzauu/CLionProjects/Spyen/Spyen/vendor/glfw/include -I/home/buzauu/CLionProjects/Spyen/Spyen/vendor/spdlog/include -I/home/buzauu/CLionProjects/Spyen/Spyen/vendor/ArcByte/include
   OBJECT_DIR = CMakeFiles/Spyen.dir
   OBJECT_FILE_DIR = CMakeFiles/Spyen.dir/Spyen/src/Core
 
@@ -69,7 +69,7 @@ build CMakeFiles/Spyen.dir/Spyen/src/Input/Input.cpp.o: CXX_COMPILER__Spyen_unsc
   DEFINES = -DSPYEN_BUILD_DLL -DSP_DEBUG -DSpyen_EXPORTS
   DEP_FILE = CMakeFiles/Spyen.dir/Spyen/src/Input/Input.cpp.o.d
   FLAGS = -g -std=gnu++20 -fPIC -fcolor-diagnostics
-  INCLUDES = -I/home/buzauu/CLionProjects/Spyen/Spyen/include -I/home/buzauu/CLionProjects/Spyen/Spyen/src -I/home/buzauu/CLionProjects/Spyen/Spyen/vendor/glad/include -I/home/buzauu/CLionProjects/Spyen/Spyen/vendor/glfw/include -I/home/buzauu/CLionProjects/Spyen/Spyen/vendor/spdlog/include
+  INCLUDES = -I/home/buzauu/CLionProjects/Spyen/Spyen/include -I/home/buzauu/CLionProjects/Spyen/Spyen/src -I/home/buzauu/CLionProjects/Spyen/Spyen/vendor/glad/include -I/home/buzauu/CLionProjects/Spyen/Spyen/vendor/glfw/include -I/home/buzauu/CLionProjects/Spyen/Spyen/vendor/spdlog/include -I/home/buzauu/CLionProjects/Spyen/Spyen/vendor/ArcByte/include
   OBJECT_DIR = CMakeFiles/Spyen.dir
   OBJECT_FILE_DIR = CMakeFiles/Spyen.dir/Spyen/src/Input
 
@@ -77,7 +77,7 @@ build CMakeFiles/Spyen.dir/Spyen/src/Renderer/BufferElement.cpp.o: CXX_COMPILER_
   DEFINES = -DSPYEN_BUILD_DLL -DSP_DEBUG -DSpyen_EXPORTS
   DEP_FILE = CMakeFiles/Spyen.dir/Spyen/src/Renderer/BufferElement.cpp.o.d
   FLAGS = -g -std=gnu++20 -fPIC -fcolor-diagnostics
-  INCLUDES = -I/home/buzauu/CLionProjects/Spyen/Spyen/include -I/home/buzauu/CLionProjects/Spyen/Spyen/src -I/home/buzauu/CLionProjects/Spyen/Spyen/vendor/glad/include -I/home/buzauu/CLionProjects/Spyen/Spyen/vendor/glfw/include -I/home/buzauu/CLionProjects/Spyen/Spyen/vendor/spdlog/include
+  INCLUDES = -I/home/buzauu/CLionProjects/Spyen/Spyen/include -I/home/buzauu/CLionProjects/Spyen/Spyen/src -I/home/buzauu/CLionProjects/Spyen/Spyen/vendor/glad/include -I/home/buzauu/CLionProjects/Spyen/Spyen/vendor/glfw/include -I/home/buzauu/CLionProjects/Spyen/Spyen/vendor/spdlog/include -I/home/buzauu/CLionProjects/Spyen/Spyen/vendor/ArcByte/include
   OBJECT_DIR = CMakeFiles/Spyen.dir
   OBJECT_FILE_DIR = CMakeFiles/Spyen.dir/Spyen/src/Renderer
 
@@ -85,7 +85,7 @@ build CMakeFiles/Spyen.dir/Spyen/src/Renderer/BufferLayout.cpp.o: CXX_COMPILER__
   DEFINES = -DSPYEN_BUILD_DLL -DSP_DEBUG -DSpyen_EXPORTS
   DEP_FILE = CMakeFiles/Spyen.dir/Spyen/src/Renderer/BufferLayout.cpp.o.d
   FLAGS = -g -std=gnu++20 -fPIC -fcolor-diagnostics
-  INCLUDES = -I/home/buzauu/CLionProjects/Spyen/Spyen/include -I/home/buzauu/CLionProjects/Spyen/Spyen/src -I/home/buzauu/CLionProjects/Spyen/Spyen/vendor/glad/include -I/home/buzauu/CLionProjects/Spyen/Spyen/vendor/glfw/include -I/home/buzauu/CLionProjects/Spyen/Spyen/vendor/spdlog/include
+  INCLUDES = -I/home/buzauu/CLionProjects/Spyen/Spyen/include -I/home/buzauu/CLionProjects/Spyen/Spyen/src -I/home/buzauu/CLionProjects/Spyen/Spyen/vendor/glad/include -I/home/buzauu/CLionProjects/Spyen/Spyen/vendor/glfw/include -I/home/buzauu/CLionProjects/Spyen/Spyen/vendor/spdlog/include -I/home/buzauu/CLionProjects/Spyen/Spyen/vendor/ArcByte/include
   OBJECT_DIR = CMakeFiles/Spyen.dir
   OBJECT_FILE_DIR = CMakeFiles/Spyen.dir/Spyen/src/Renderer
 
@@ -93,7 +93,7 @@ build CMakeFiles/Spyen.dir/Spyen/src/Renderer/IndexBuffer.cpp.o: CXX_COMPILER__S
   DEFINES = -DSPYEN_BUILD_DLL -DSP_DEBUG -DSpyen_EXPORTS
   DEP_FILE = CMakeFiles/Spyen.dir/Spyen/src/Renderer/IndexBuffer.cpp.o.d
   FLAGS = -g -std=gnu++20 -fPIC -fcolor-diagnostics
-  INCLUDES = -I/home/buzauu/CLionProjects/Spyen/Spyen/include -I/home/buzauu/CLionProjects/Spyen/Spyen/src -I/home/buzauu/CLionProjects/Spyen/Spyen/vendor/glad/include -I/home/buzauu/CLionProjects/Spyen/Spyen/vendor/glfw/include -I/home/buzauu/CLionProjects/Spyen/Spyen/vendor/spdlog/include
+  INCLUDES = -I/home/buzauu/CLionProjects/Spyen/Spyen/include -I/home/buzauu/CLionProjects/Spyen/Spyen/src -I/home/buzauu/CLionProjects/Spyen/Spyen/vendor/glad/include -I/home/buzauu/CLionProjects/Spyen/Spyen/vendor/glfw/include -I/home/buzauu/CLionProjects/Spyen/Spyen/vendor/spdlog/include -I/home/buzauu/CLionProjects/Spyen/Spyen/vendor/ArcByte/include
   OBJECT_DIR = CMakeFiles/Spyen.dir
   OBJECT_FILE_DIR = CMakeFiles/Spyen.dir/Spyen/src/Renderer
 
@@ -101,7 +101,7 @@ build CMakeFiles/Spyen.dir/Spyen/src/Renderer/Renderer.cpp.o: CXX_COMPILER__Spye
   DEFINES = -DSPYEN_BUILD_DLL -DSP_DEBUG -DSpyen_EXPORTS
   DEP_FILE = CMakeFiles/Spyen.dir/Spyen/src/Renderer/Renderer.cpp.o.d
   FLAGS = -g -std=gnu++20 -fPIC -fcolor-diagnostics
-  INCLUDES = -I/home/buzauu/CLionProjects/Spyen/Spyen/include -I/home/buzauu/CLionProjects/Spyen/Spyen/src -I/home/buzauu/CLionProjects/Spyen/Spyen/vendor/glad/include -I/home/buzauu/CLionProjects/Spyen/Spyen/vendor/glfw/include -I/home/buzauu/CLionProjects/Spyen/Spyen/vendor/spdlog/include
+  INCLUDES = -I/home/buzauu/CLionProjects/Spyen/Spyen/include -I/home/buzauu/CLionProjects/Spyen/Spyen/src -I/home/buzauu/CLionProjects/Spyen/Spyen/vendor/glad/include -I/home/buzauu/CLionProjects/Spyen/Spyen/vendor/glfw/include -I/home/buzauu/CLionProjects/Spyen/Spyen/vendor/spdlog/include -I/home/buzauu/CLionProjects/Spyen/Spyen/vendor/ArcByte/include
   OBJECT_DIR = CMakeFiles/Spyen.dir
   OBJECT_FILE_DIR = CMakeFiles/Spyen.dir/Spyen/src/Renderer
 
@@ -109,7 +109,7 @@ build CMakeFiles/Spyen.dir/Spyen/src/Renderer/Shader.cpp.o: CXX_COMPILER__Spyen_
   DEFINES = -DSPYEN_BUILD_DLL -DSP_DEBUG -DSpyen_EXPORTS
   DEP_FILE = CMakeFiles/Spyen.dir/Spyen/src/Renderer/Shader.cpp.o.d
   FLAGS = -g -std=gnu++20 -fPIC -fcolor-diagnostics
-  INCLUDES = -I/home/buzauu/CLionProjects/Spyen/Spyen/include -I/home/buzauu/CLionProjects/Spyen/Spyen/src -I/home/buzauu/CLionProjects/Spyen/Spyen/vendor/glad/include -I/home/buzauu/CLionProjects/Spyen/Spyen/vendor/glfw/include -I/home/buzauu/CLionProjects/Spyen/Spyen/vendor/spdlog/include
+  INCLUDES = -I/home/buzauu/CLionProjects/Spyen/Spyen/include -I/home/buzauu/CLionProjects/Spyen/Spyen/src -I/home/buzauu/CLionProjects/Spyen/Spyen/vendor/glad/include -I/home/buzauu/CLionProjects/Spyen/Spyen/vendor/glfw/include -I/home/buzauu/CLionProjects/Spyen/Spyen/vendor/spdlog/include -I/home/buzauu/CLionProjects/Spyen/Spyen/vendor/ArcByte/include
   OBJECT_DIR = CMakeFiles/Spyen.dir
   OBJECT_FILE_DIR = CMakeFiles/Spyen.dir/Spyen/src/Renderer
 
@@ -117,7 +117,7 @@ build CMakeFiles/Spyen.dir/Spyen/src/Renderer/Texture.cpp.o: CXX_COMPILER__Spyen
   DEFINES = -DSPYEN_BUILD_DLL -DSP_DEBUG -DSpyen_EXPORTS
   DEP_FILE = CMakeFiles/Spyen.dir/Spyen/src/Renderer/Texture.cpp.o.d
   FLAGS = -g -std=gnu++20 -fPIC -fcolor-diagnostics
-  INCLUDES = -I/home/buzauu/CLionProjects/Spyen/Spyen/include -I/home/buzauu/CLionProjects/Spyen/Spyen/src -I/home/buzauu/CLionProjects/Spyen/Spyen/vendor/glad/include -I/home/buzauu/CLionProjects/Spyen/Spyen/vendor/glfw/include -I/home/buzauu/CLionProjects/Spyen/Spyen/vendor/spdlog/include
+  INCLUDES = -I/home/buzauu/CLionProjects/Spyen/Spyen/include -I/home/buzauu/CLionProjects/Spyen/Spyen/src -I/home/buzauu/CLionProjects/Spyen/Spyen/vendor/glad/include -I/home/buzauu/CLionProjects/Spyen/Spyen/vendor/glfw/include -I/home/buzauu/CLionProjects/Spyen/Spyen/vendor/spdlog/include -I/home/buzauu/CLionProjects/Spyen/Spyen/vendor/ArcByte/include
   OBJECT_DIR = CMakeFiles/Spyen.dir
   OBJECT_FILE_DIR = CMakeFiles/Spyen.dir/Spyen/src/Renderer
 
@@ -125,7 +125,7 @@ build CMakeFiles/Spyen.dir/Spyen/src/Renderer/VertexArray.cpp.o: CXX_COMPILER__S
   DEFINES = -DSPYEN_BUILD_DLL -DSP_DEBUG -DSpyen_EXPORTS
   DEP_FILE = CMakeFiles/Spyen.dir/Spyen/src/Renderer/VertexArray.cpp.o.d
   FLAGS = -g -std=gnu++20 -fPIC -fcolor-diagnostics
-  INCLUDES = -I/home/buzauu/CLionProjects/Spyen/Spyen/include -I/home/buzauu/CLionProjects/Spyen/Spyen/src -I/home/buzauu/CLionProjects/Spyen/Spyen/vendor/glad/include -I/home/buzauu/CLionProjects/Spyen/Spyen/vendor/glfw/include -I/home/buzauu/CLionProjects/Spyen/Spyen/vendor/spdlog/include
+  INCLUDES = -I/home/buzauu/CLionProjects/Spyen/Spyen/include -I/home/buzauu/CLionProjects/Spyen/Spyen/src -I/home/buzauu/CLionProjects/Spyen/Spyen/vendor/glad/include -I/home/buzauu/CLionProjects/Spyen/Spyen/vendor/glfw/include -I/home/buzauu/CLionProjects/Spyen/Spyen/vendor/spdlog/include -I/home/buzauu/CLionProjects/Spyen/Spyen/vendor/ArcByte/include
   OBJECT_DIR = CMakeFiles/Spyen.dir
   OBJECT_FILE_DIR = CMakeFiles/Spyen.dir/Spyen/src/Renderer
 
@@ -133,7 +133,7 @@ build CMakeFiles/Spyen.dir/Spyen/src/Renderer/VertexBuffer.cpp.o: CXX_COMPILER__
   DEFINES = -DSPYEN_BUILD_DLL -DSP_DEBUG -DSpyen_EXPORTS
   DEP_FILE = CMakeFiles/Spyen.dir/Spyen/src/Renderer/VertexBuffer.cpp.o.d
   FLAGS = -g -std=gnu++20 -fPIC -fcolor-diagnostics
-  INCLUDES = -I/home/buzauu/CLionProjects/Spyen/Spyen/include -I/home/buzauu/CLionProjects/Spyen/Spyen/src -I/home/buzauu/CLionProjects/Spyen/Spyen/vendor/glad/include -I/home/buzauu/CLionProjects/Spyen/Spyen/vendor/glfw/include -I/home/buzauu/CLionProjects/Spyen/Spyen/vendor/spdlog/include
+  INCLUDES = -I/home/buzauu/CLionProjects/Spyen/Spyen/include -I/home/buzauu/CLionProjects/Spyen/Spyen/src -I/home/buzauu/CLionProjects/Spyen/Spyen/vendor/glad/include -I/home/buzauu/CLionProjects/Spyen/Spyen/vendor/glfw/include -I/home/buzauu/CLionProjects/Spyen/Spyen/vendor/spdlog/include -I/home/buzauu/CLionProjects/Spyen/Spyen/vendor/ArcByte/include
   OBJECT_DIR = CMakeFiles/Spyen.dir
   OBJECT_FILE_DIR = CMakeFiles/Spyen.dir/Spyen/src/Renderer
 
@@ -141,7 +141,7 @@ build CMakeFiles/Spyen.dir/Spyen/src/Renderer/stb_image.cpp.o: CXX_COMPILER__Spy
   DEFINES = -DSPYEN_BUILD_DLL -DSP_DEBUG -DSpyen_EXPORTS
   DEP_FILE = CMakeFiles/Spyen.dir/Spyen/src/Renderer/stb_image.cpp.o.d
   FLAGS = -g -std=gnu++20 -fPIC -fcolor-diagnostics
-  INCLUDES = -I/home/buzauu/CLionProjects/Spyen/Spyen/include -I/home/buzauu/CLionProjects/Spyen/Spyen/src -I/home/buzauu/CLionProjects/Spyen/Spyen/vendor/glad/include -I/home/buzauu/CLionProjects/Spyen/Spyen/vendor/glfw/include -I/home/buzauu/CLionProjects/Spyen/Spyen/vendor/spdlog/include
+  INCLUDES = -I/home/buzauu/CLionProjects/Spyen/Spyen/include -I/home/buzauu/CLionProjects/Spyen/Spyen/src -I/home/buzauu/CLionProjects/Spyen/Spyen/vendor/glad/include -I/home/buzauu/CLionProjects/Spyen/Spyen/vendor/glfw/include -I/home/buzauu/CLionProjects/Spyen/Spyen/vendor/spdlog/include -I/home/buzauu/CLionProjects/Spyen/Spyen/vendor/ArcByte/include
   OBJECT_DIR = CMakeFiles/Spyen.dir
   OBJECT_FILE_DIR = CMakeFiles/Spyen.dir/Spyen/src/Renderer
 
@@ -149,7 +149,7 @@ build CMakeFiles/Spyen.dir/Spyen/src/Scene/Entity.cpp.o: CXX_COMPILER__Spyen_uns
   DEFINES = -DSPYEN_BUILD_DLL -DSP_DEBUG -DSpyen_EXPORTS
   DEP_FILE = CMakeFiles/Spyen.dir/Spyen/src/Scene/Entity.cpp.o.d
   FLAGS = -g -std=gnu++20 -fPIC -fcolor-diagnostics
-  INCLUDES = -I/home/buzauu/CLionProjects/Spyen/Spyen/include -I/home/buzauu/CLionProjects/Spyen/Spyen/src -I/home/buzauu/CLionProjects/Spyen/Spyen/vendor/glad/include -I/home/buzauu/CLionProjects/Spyen/Spyen/vendor/glfw/include -I/home/buzauu/CLionProjects/Spyen/Spyen/vendor/spdlog/include
+  INCLUDES = -I/home/buzauu/CLionProjects/Spyen/Spyen/include -I/home/buzauu/CLionProjects/Spyen/Spyen/src -I/home/buzauu/CLionProjects/Spyen/Spyen/vendor/glad/include -I/home/buzauu/CLionProjects/Spyen/Spyen/vendor/glfw/include -I/home/buzauu/CLionProjects/Spyen/Spyen/vendor/spdlog/include -I/home/buzauu/CLionProjects/Spyen/Spyen/vendor/ArcByte/include
   OBJECT_DIR = CMakeFiles/Spyen.dir
   OBJECT_FILE_DIR = CMakeFiles/Spyen.dir/Spyen/src/Scene
 
@@ -157,7 +157,7 @@ build CMakeFiles/Spyen.dir/Spyen/src/Scene/Scene.cpp.o: CXX_COMPILER__Spyen_unsc
   DEFINES = -DSPYEN_BUILD_DLL -DSP_DEBUG -DSpyen_EXPORTS
   DEP_FILE = CMakeFiles/Spyen.dir/Spyen/src/Scene/Scene.cpp.o.d
   FLAGS = -g -std=gnu++20 -fPIC -fcolor-diagnostics
-  INCLUDES = -I/home/buzauu/CLionProjects/Spyen/Spyen/include -I/home/buzauu/CLionProjects/Spyen/Spyen/src -I/home/buzauu/CLionProjects/Spyen/Spyen/vendor/glad/include -I/home/buzauu/CLionProjects/Spyen/Spyen/vendor/glfw/include -I/home/buzauu/CLionProjects/Spyen/Spyen/vendor/spdlog/include
+  INCLUDES = -I/home/buzauu/CLionProjects/Spyen/Spyen/include -I/home/buzauu/CLionProjects/Spyen/Spyen/src -I/home/buzauu/CLionProjects/Spyen/Spyen/vendor/glad/include -I/home/buzauu/CLionProjects/Spyen/Spyen/vendor/glfw/include -I/home/buzauu/CLionProjects/Spyen/Spyen/vendor/spdlog/include -I/home/buzauu/CLionProjects/Spyen/Spyen/vendor/ArcByte/include
   OBJECT_DIR = CMakeFiles/Spyen.dir
   OBJECT_FILE_DIR = CMakeFiles/Spyen.dir/Spyen/src/Scene
 
@@ -165,7 +165,7 @@ build CMakeFiles/Spyen.dir/Spyen/src/Window/Window.cpp.o: CXX_COMPILER__Spyen_un
   DEFINES = -DSPYEN_BUILD_DLL -DSP_DEBUG -DSpyen_EXPORTS
   DEP_FILE = CMakeFiles/Spyen.dir/Spyen/src/Window/Window.cpp.o.d
   FLAGS = -g -std=gnu++20 -fPIC -fcolor-diagnostics
-  INCLUDES = -I/home/buzauu/CLionProjects/Spyen/Spyen/include -I/home/buzauu/CLionProjects/Spyen/Spyen/src -I/home/buzauu/CLionProjects/Spyen/Spyen/vendor/glad/include -I/home/buzauu/CLionProjects/Spyen/Spyen/vendor/glfw/include -I/home/buzauu/CLionProjects/Spyen/Spyen/vendor/spdlog/include
+  INCLUDES = -I/home/buzauu/CLionProjects/Spyen/Spyen/include -I/home/buzauu/CLionProjects/Spyen/Spyen/src -I/home/buzauu/CLionProjects/Spyen/Spyen/vendor/glad/include -I/home/buzauu/CLionProjects/Spyen/Spyen/vendor/glfw/include -I/home/buzauu/CLionProjects/Spyen/Spyen/vendor/spdlog/include -I/home/buzauu/CLionProjects/Spyen/Spyen/vendor/ArcByte/include
   OBJECT_DIR = CMakeFiles/Spyen.dir
   OBJECT_FILE_DIR = CMakeFiles/Spyen.dir/Spyen/src/Window
 
@@ -173,7 +173,7 @@ build CMakeFiles/Spyen.dir/Spyen/vendor/glad/src/glad.c.o: C_COMPILER__Spyen_uns
   DEFINES = -DSPYEN_BUILD_DLL -DSP_DEBUG -DSpyen_EXPORTS
   DEP_FILE = CMakeFiles/Spyen.dir/Spyen/vendor/glad/src/glad.c.o.d
   FLAGS = -g -fPIC -fcolor-diagnostics
-  INCLUDES = -I/home/buzauu/CLionProjects/Spyen/Spyen/include -I/home/buzauu/CLionProjects/Spyen/Spyen/src -I/home/buzauu/CLionProjects/Spyen/Spyen/vendor/glad/include -I/home/buzauu/CLionProjects/Spyen/Spyen/vendor/glfw/include -I/home/buzauu/CLionProjects/Spyen/Spyen/vendor/spdlog/include
+  INCLUDES = -I/home/buzauu/CLionProjects/Spyen/Spyen/include -I/home/buzauu/CLionProjects/Spyen/Spyen/src -I/home/buzauu/CLionProjects/Spyen/Spyen/vendor/glad/include -I/home/buzauu/CLionProjects/Spyen/Spyen/vendor/glfw/include -I/home/buzauu/CLionProjects/Spyen/Spyen/vendor/spdlog/include -I/home/buzauu/CLionProjects/Spyen/Spyen/vendor/ArcByte/include
   OBJECT_DIR = CMakeFiles/Spyen.dir
   OBJECT_FILE_DIR = CMakeFiles/Spyen.dir/Spyen/vendor/glad/src
 
@@ -210,7 +210,7 @@ build cmake_object_order_depends_target_Sandbox: phony || cmake_object_order_dep
 build CMakeFiles/Sandbox.dir/SandBox/src/main.cpp.o: CXX_COMPILER__Sandbox_unscanned_Debug /home/buzauu/CLionProjects/Spyen/SandBox/src/main.cpp || cmake_object_order_depends_target_Sandbox
   DEP_FILE = CMakeFiles/Sandbox.dir/SandBox/src/main.cpp.o.d
   FLAGS = -g -std=gnu++20 -fcolor-diagnostics
-  INCLUDES = -I/home/buzauu/CLionProjects/Spyen/Spyen/include -I/home/buzauu/CLionProjects/Spyen/Spyen/src -I/home/buzauu/CLionProjects/Spyen/Spyen/vendor/glad/include -I/home/buzauu/CLionProjects/Spyen/Spyen/vendor/glfw/include -I/home/buzauu/CLionProjects/Spyen/Spyen/vendor/spdlog/include
+  INCLUDES = -I/home/buzauu/CLionProjects/Spyen/Spyen/include -I/home/buzauu/CLionProjects/Spyen/Spyen/src -I/home/buzauu/CLionProjects/Spyen/Spyen/vendor/glad/include -I/home/buzauu/CLionProjects/Spyen/Spyen/vendor/glfw/include -I/home/buzauu/CLionProjects/Spyen/Spyen/vendor/spdlog/include -I/home/buzauu/CLionProjects/Spyen/Spyen/vendor/ArcByte/include
   OBJECT_DIR = CMakeFiles/Sandbox.dir
   OBJECT_FILE_DIR = CMakeFiles/Sandbox.dir/SandBox/src
 
@@ -245,7 +245,7 @@ build cmake_object_order_depends_target_arcbyte: phony || .
 build CMakeFiles/arcbyte.dir/ArcByte/src/main.c.o: C_COMPILER__arcbyte_unscanned_Debug /home/buzauu/CLionProjects/Spyen/ArcByte/src/main.c || cmake_object_order_depends_target_arcbyte
   DEP_FILE = CMakeFiles/arcbyte.dir/ArcByte/src/main.c.o.d
   FLAGS = -g -std=gnu99 -fcolor-diagnostics
-  INCLUDES = -I/home/buzauu/CLionProjects/Spyen/Spyen/include -I/home/buzauu/CLionProjects/Spyen/Spyen/src -I/home/buzauu/CLionProjects/Spyen/Spyen/vendor/glad/include -I/home/buzauu/CLionProjects/Spyen/Spyen/vendor/glfw/include -I/home/buzauu/CLionProjects/Spyen/Spyen/vendor/spdlog/include -I/home/buzauu/CLionProjects/Spyen/ArcByte/include
+  INCLUDES = -I/home/buzauu/CLionProjects/Spyen/Spyen/include -I/home/buzauu/CLionProjects/Spyen/Spyen/src -I/home/buzauu/CLionProjects/Spyen/Spyen/vendor/glad/include -I/home/buzauu/CLionProjects/Spyen/Spyen/vendor/glfw/include -I/home/buzauu/CLionProjects/Spyen/Spyen/vendor/spdlog/include -I/home/buzauu/CLionProjects/Spyen/Spyen/vendor/ArcByte/include -I/home/buzauu/CLionProjects/Spyen/ArcByte/include
   OBJECT_DIR = CMakeFiles/arcbyte.dir
   OBJECT_FILE_DIR = CMakeFiles/arcbyte.dir/ArcByte/src
 

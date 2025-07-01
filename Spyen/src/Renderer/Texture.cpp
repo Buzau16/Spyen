@@ -46,6 +46,35 @@ namespace Spyen {
         glTextureParameteri(m_RendererID, GL_TEXTURE_WRAP_S, GL_REPEAT);
         glTextureParameteri(m_RendererID, GL_TEXTURE_WRAP_T, GL_REPEAT);
     }
+    Texture::Texture(const unsigned char *data, uint32_t width, uint32_t height, uint8_t channels) {
+        if (!data) {
+            SPY_CORE_CRITICAL("Failed to load texture");
+            return;
+        }
+
+        m_Specs = {
+            .Width = static_cast<int>(width),
+            .Height = static_cast<int>(height),
+            .Channels = channels
+        };
+
+        m_InternalFormat = m_Specs.Channels == 4 ? GL_RGBA8 : GL_RGB8;
+        m_DataFormat = m_Specs.Channels == 4 ? GL_RGBA : GL_RGB;
+
+        glCreateTextures(GL_TEXTURE_2D, 1, &m_RendererID);
+        glTextureStorage2D(m_RendererID, 1, m_InternalFormat, m_Specs.Width, m_Specs.Height);
+
+        glTextureParameteri(m_RendererID, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
+        glTextureParameteri(m_RendererID, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
+
+        glTextureParameteri(m_RendererID, GL_TEXTURE_WRAP_S, GL_REPEAT);
+        glTextureParameteri(m_RendererID, GL_TEXTURE_WRAP_T, GL_REPEAT);
+
+        glTextureSubImage2D(m_RendererID, 0, 0, 0, m_Specs.Width, m_Specs.Height, m_DataFormat, GL_UNSIGNED_BYTE, data);
+
+        GLenum error = glGetError();
+        SPY_CORE_ERROR("Error in Texture creation with code: {0}", error);
+    }
 
     void Texture::Bind(uint32_t slot) const {
         glBindTextureUnit(slot, m_RendererID);
@@ -63,7 +92,8 @@ namespace Spyen {
         return std::make_shared<Texture>(path);
     }
 
-    std::shared_ptr<Texture> Texture::Create(const TextureSpecs &specs) {
-        return std::make_shared<Texture>(specs);
+    std::shared_ptr<Texture> Texture::Create(const TextureSpecs &specs) { return std::make_shared<Texture>(specs); }
+    std::shared_ptr<Texture> Texture::Create(const unsigned char *data, uint32_t width, uint32_t height, uint8_t channels) {
+        return std::make_shared<Texture>(data, width, height, channels);
     }
-}
+} // namespace Spyen

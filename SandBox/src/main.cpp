@@ -1,5 +1,7 @@
-#include <iostream>
 #include <Spyen.h>
+#define ARCBYTE_IMPLEMENTATION
+#include "Reader.h"
+#include "spdlog/common.h"
 
 void Move(Spyen::Timestep ts) {
     auto& trans = Spyen::Engine::GetSceneByName("1")->GetEntityByName("test")->GetComponent<Spyen::TransformComponent>();
@@ -25,15 +27,17 @@ int main(int argc, char* argv[])
 
     auto scene = Spyen::Engine::CreateScene("1");
     auto ent = scene->CreateEntity("test");
-    auto& renderComp = ent->GetComponent<Spyen::RenderComponent>();
-renderComp.Color = {1.0f, 1.0f, 1.0f, 1.0f};
-std::cout << "Color set: " << renderComp.Color.r << ", " << renderComp.Color.g << ", " 
-          << renderComp.Color.b << ", " << renderComp.Color.a << std::endl;
-    ent->GetComponent<Spyen::TransformComponent>().Rotation = 0.0f;
+    FileContext* context = reader_init("coxx.aby");
+    ABHashEntry entry = get_entry(context, "Player");
+    auto texture = Spyen::Texture::Create(
+            static_cast<const unsigned char *>(reader_get_entry(context, "Player")), entry.width, entry.height, entry.channels);
+    ent->GetComponent<Spyen::RenderComponent>().Texture = texture;
 
     scene->AddSystem(Move);
 
     Spyen::Engine::SetActiveScene("1");
 
     Spyen::Engine::Run();
+
+    reader_shutdown(context);
 }

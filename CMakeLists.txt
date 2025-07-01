@@ -17,6 +17,7 @@ include_directories(
         ${CMAKE_CURRENT_SOURCE_DIR}/Spyen/vendor/glad/include
         ${CMAKE_CURRENT_SOURCE_DIR}/Spyen/vendor/glfw/include
         ${CMAKE_CURRENT_SOURCE_DIR}/Spyen/vendor/spdlog/include
+        ${CMAKE_CURRENT_SOURCE_DIR}/Spyen/vendor/ArcByte/include
 )
 
 # Source files
@@ -52,7 +53,7 @@ target_include_directories(Spyen PRIVATE ${GLFW_INCLUDE_DIRS})
 project(Sandbox)
 
 add_executable(Sandbox "SandBox/src/main.cpp"
-        Spyen/include/Core/LogMacros.h
+        Spyen/include/Spyen.h
 )
 
 target_include_directories(Sandbox PUBLIC
